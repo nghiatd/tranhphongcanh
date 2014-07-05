@@ -1,0 +1,41 @@
+<script>
+$(document).ready(function(){
+	$('navtop li a').removeClass('cur');
+	$(".navtop li a[href='/san-pham.html']").addClass('cur');
+				});
+
+</script>	
+ <div class="folder">
+                    <div class="folder-head">
+                        <div class="title"><h3><?php echo $this->action('youarehere','html',null,array('YouAreHere'=>$this->YouAreHere))?></h3></div>
+                    </div>
+                    
+                    <ul class="listproduct">
+                 
+                    <?php if($this->Products->count()>0){ ?>
+			<?php foreach ($this->Products as $Product){?>
+                        <li class="clearfix">
+                            <div class="left"><a href="<?php echo $Product->getLink();?>"><img src="<?php echo $Product->getThumbImage();?>" /></a></div>
+                            <div class="center">
+                                <p class="nameproduct" width="50"><b><a  href="<?php echo $Product->getLink();?>"><?php echo $Product->title;?></a></b></p>
+                                <p class="price">Mã sản phẩm: <b><?php echo $Product->origin;?></b></p>
+                                <p class="price">Chất liệu: <b><?php echo $Product->maker;?></b></p>
+                                <p class="price">Giá: <b style="color:#cc0000"><?php echo number_format($Product->price)." vnđ";?></b></p>
+                            </div>
+                            
+                            <div class="right"><p class="button2"><a href="<?php echo $Product->getLink();?>">Chi tiết</a></p></div>
+                            
+                            <div class="clearfix"></div>
+                        </li>
+                    <?php }?>
+                    <?php }?>
+                    </ul>
+                    
+                    <div class="clearfix"></div>
+                   	
+					<div class="paging">
+						<?php echo $this->Pagination2($this->Pager,$this->url().'?page={%page}',$_GET,false)?>
+					</div>
+                    
+</div><!--@folder-->
+

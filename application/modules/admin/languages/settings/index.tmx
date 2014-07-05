@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence" adminlang="en_US" srclang="de-at" o-tmf="abc" creationtool="XYZTool" ></header>
+	<body>
+		<tu tuid="Settings_tab_controller">
+			<tuv xml:lang="en"><seg>General|Email|SEO</seg></tuv>
+			<tuv xml:lang="vi"><seg>Cơ bản|Email|SEO</seg></tuv>
+		</tu>
+		<tu tuid="Settings_module_title">
+			<tuv xml:lang="en"><seg>Settings</seg></tuv>
+			<tuv xml:lang="vi"><seg>Cài đăt cấu hình</seg></tuv>
+		</tu>
+		<tu tuid="Setting">
+			<tuv xml:lang="en"><seg>Setting</seg></tuv>
+			<tuv xml:lang="vi"><seg>Thuộc tính</seg></tuv>
+		</tu>
+		<tu tuid="Value">
+			<tuv xml:lang="en"><seg>Value</seg></tuv>
+			<tuv xml:lang="vi"><seg>Giá trị</seg></tuv>
+		</tu>
+		<tu tuid="Description">
+			<tuv xml:lang="en"><seg>Description</seg></tuv>
+			<tuv xml:lang="vi"><seg>Mô tả thuộc tính</seg></tuv>
+		</tu>
+		<tu tuid="New settings saved">
+			<tuv xml:lang="en"><seg>Settings saved</seg></tuv>
+			<tuv xml:lang="vi"><seg>Thiết lập mới đã được lưu lại</seg></tuv>
+		</tu>
+	</body>
+</tmx>

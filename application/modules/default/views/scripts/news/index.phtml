@@ -1,0 +1,29 @@
+			
+			<div class="boxnews">
+                    <div class="boxnews-head"><h3>Tin tức</h3></div>
+                    <ul class="listnews">
+                    	<?php if($this->News->count()>0){?>
+            				<?php foreach ($this->News as $New){?>
+                        <li>
+                            <p class="thumbs-left"><a href="<?php echo $New->getLink();?>"><img width="130" height="130"src="<?php echo $New->getThumbImage();?>" /></a></p>
+                            <p class="thumbs-right">
+                            <a href="<?php echo $New->getLink();?>"><b><?php echo $New->title;?></b></a>
+                            </br><b><?php echo $New->getDateAdd();?></b>
+                            </br><p class="thumbs-right" <?php echo $New->description;?></p>
+                            </p>
+                            <div class="ClearBoth"></div>
+                    
+                        </li>
+                       		 <?php }?>
+                       		 	
+                        <?php }else{?>
+                       		 <li>Không có tin tức nào</li>
+                       		 <?php }?>
+                    </ul>
+                    
+                    <div class="paging">
+			<?php echo $this->Pagination2($this->Pager,$this->url().'?page={%page}',$_GET,false)?>
+		</div>
+                    
+                </div><!--@boxnews-->
+                

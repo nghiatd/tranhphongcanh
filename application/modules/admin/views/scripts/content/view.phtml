@@ -1,0 +1,45 @@
+<table border="0" cellpadding="3" cellspacing="2" width="100%">
+	<tr valign="top">
+		<td rowspan="7" align="center">ĐIỂM TRUNG BÌNH<br />
+		<h3><?php echo $this->Review->getAverageScore()?></h3>
+		</td>
+		<td colspan="2">ĐIỂM SỐ CHI TIẾT</td>
+	</tr>
+	<tr>
+		<td>Service</td>
+		<td><?php echo $this->Review->score_service?></td>
+	</tr>
+	<tr>
+		<td>Cleanliness</td>
+		<td><?php echo $this->Review->score_cleanliness?></td>
+	</tr>
+	<tr>
+		<td>Location</td>
+		<td><?php echo $this->Review->score_location?></td>
+	</tr>
+	<tr>
+		<td>Value for money</td>
+		<td><?php echo $this->Review->score_value_for_money?></td>
+	</tr>
+	<tr>
+		<td>Staff</td>
+		<td><?php echo $this->Review->score_staff?></td>
+	</tr>
+	<tr>
+		<td>Facilities</td>
+		<td><?php echo $this->Review->score_facilities?></td>
+	</tr>
+</table>
+<table width="100%">
+	<tr>
+		<td><b>Khách hàng</b></td>
+		<td><?php echo $this->Review->getCustomer()?></td>
+		<td><b>Ngày thuê</b></td>
+		<td><?php echo $this->Review->getStayedDate()?></td>
+		<td><b>Ngày tạo</b></td>
+		<td><?php echo $this->Review->getCreatedDate()?></td>
+	</tr>
+</table>
+Nhận xét:
+<div style="overflow-y: scroll; overflow-x: hidden; height: 150px"><?php echo nl2br($this->Review->comment)?></div>
+<input type="button" value="Quay lại" onclick="javascript:history.back();" />

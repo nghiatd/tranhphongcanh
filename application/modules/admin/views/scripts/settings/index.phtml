@@ -1,0 +1,36 @@
+
+<div id="tabs" class="ui-remove-corner" style="padding: 0">
+	<ul class="ui-remove-corner" style="padding-left: 10px;">
+			<?php foreach($this->Tab_Controller as $k=>$Controller):?>
+			<li><a href="#tabs-<?php echo $k?>"><?php echo $Controller?></a></li>
+			<?php endforeach;?>
+		</ul>
+	<form action="" method="post" enctype="multipart/form-data"
+		class="hastable">
+		<?php foreach($this->Tab_Controller as $k=>$Controller):?>
+		<div id="tabs-<?php echo $k?>">
+			<table>
+				<thead>
+					<tr>
+						<th><?php echo $this->translate('Setting')?></th>
+						<th><?php echo $this->translate('Value')?></th>
+						<th><?php echo $this->translate('Description')?></th>
+					</tr>
+				</thead>				
+				<?php foreach($this->Settings as $Setting): if($Setting->section!=$k)continue?>
+					<tr>
+					<td><?php echo $Setting->name?>:</td>
+					<td><?php echo $this->formText('Setting['.$Setting->id.']',$Setting->value,array('size'=>90))?></td>
+					<td><?php echo $Setting->desc?></td>
+				</tr>
+				<?php endforeach;?>
+			</table>
+		</div>
+		<?php endforeach;?>
+		<?php echo $this->formSubmit('submit',$this->translate('Save'))?>
+		</form>
+</div>
+
+<script>
+$('textarea').attr('rows',5);
+</script>

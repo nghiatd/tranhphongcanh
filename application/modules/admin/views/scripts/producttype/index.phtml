@@ -1,0 +1,56 @@
+<button class="dialog-form-create">Thêm mục</button>
+
+<div class="hastable">
+<table cellspacing="0" cellpadding="3" id="detailsView" width="100%">
+	<thead>
+		<tr>
+			<td>Số TT</td>
+			<td>Tên</td>
+			<td>Sắp xếp</td>
+			<td>Tùy chọn</td>
+		</tr>
+	</thead>
+	<tbody>	<?php foreach ( $this->ProductTypes as $ProductType ) :?>
+		<tr>
+			<td><?php echo ++ $i?></td>
+			<td><?php /*<a class="category_<?php echo $category->id?>" href="admin/categories/?id=<?php echo $category->id?>">
+			*/?>
+			<?php echo $ProductType->name?></td>
+		
+			<td><?php echo $ProductType->orders?></td>
+			<td><a class="edit btn_no_text btn ui-state-default ui-corner-all tooltip"
+				href="admin/producttype/edit?id=<?php echo $ProductType->id?>"><span
+				class="ui-icon ui-icon-wrench"></span></a> 
+				<a class="delete btn_no_text btn ui-state-default ui-corner-all tooltip"
+				rel="<?php echo $ProductType->id?>" href="admin/producttype/delete?id=<?php echo $ProductType->id?>"><span
+				class="ui-icon ui-icon-circle-close"></span></a></td>
+		</tr>
+	<?php endforeach;?>	</tbody>
+</table>
+</div>
+<div id="dialog-form-create" title="Tạo loại danh mục">
+<?php echo $this->partial('producttype/form.phtml',array('id'=>'dialog-form-create','tabs'=>'create','action'=>'admin/producttype/create'))?>
+</div>
+<div id="dialog-form-edit" title="Sửa loại danh mục">
+<?php echo $this->partial('producttype/form.phtml',array('id'=>'dialog-form-edit','tabs'=>'edit','action'=>'admin/producttype/edit'))?>
+</div>
+
+<div id="dialog-form-delete" title="Xóa loại danh mục">
+<form id="dialog-form-delete-form" method="post" action="">
+<div class="alert_delete"><b></b></div>
+<br />
+Bạn có chắc chắn muốn xóa Loại Danh mục trên không?</form>
+</div>
+<script type="text/javascript">
+	$(function() {
+		$('a.edit').click(function(){
+			dialogEditProducttype($(this),'dialog-form-edit');
+			return false;
+		});
+		initDeleteMemberDialog();
+		$('a.delete').click(function(){
+			dialogDeleteProducttype($(this));
+			return false;
+		});
+	});
+</script>

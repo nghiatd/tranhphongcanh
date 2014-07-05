@@ -1,0 +1,44 @@
+
+<div class="pathway clearfix">
+	<span class="FloatLeft"><a href="#"><img
+			src="images/icon/icon-home.png"> </a> </span> <span
+		class="FloatLeft curpage">Giới thiệu</span>
+</div>
+<!--[pathway]-->
+<?php //echo $this->partial('index/boxbanner2.phtml')?>
+            	<?php //echo $this->partial('index/boxtopcenter.phtml')?>
+<div class="block">
+	<div class="head clearfix">
+		<h3 class="icon-result">Kết quả tìm kiếm</h3>
+		<div class="FloatRight">
+
+		</div>
+	</div>
+	<!--//head-->
+	<div class="content result-search">
+		<p style="color: #999">Có <?php echo $this->Pager->getNumResults();  ?> kết quả</p>
+		<ul class="list-hori">
+                    	<?php foreach ($this->Products as $Search){ ?>
+                        	<li class="ui-li">
+				<div class="ui-li-inner">
+					<a style="display: block" href="#"><img class="ui-thumbs"
+						src="<?php echo $Search->getThumbImage() ?>" height="50"
+						width="66"></a>
+					<p style="padding-bottom: 4px">
+						<a class="titlelink" href="<?php echo $Search->getLink() ?>"><?php echo $Search->title ?></a>
+					</p>
+					<p>
+						Kích thước: <b><?php echo $Search->power ?>cm</b><br>Chất
+						liệu: <b><?php echo $Search->maker ?></b>
+					</p>
+				</div>
+			</li>
+                        	<?php } ?>
+                        </ul>
+
+		<div class="page clearfix">
+			
+		</div>
+	</div>
+</div>
+<!--[block]-->

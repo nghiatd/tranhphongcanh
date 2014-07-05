@@ -1,0 +1,20 @@
+
+                <div class="folder">
+                    <div class="folder-head">
+                        <div class="title"><h3>Sản phẩm mới</h3></div>
+                    </div>
+                    <ul class="list">
+                    
+                    <?php foreach (Products::getWithOutPage(array('is_new=?'=>1,'status=?'=>1),Zend_Registry::get ( 'Setting')->SANPHAM_KHAC) as $SanPhamMoi){ ?>					
+					<li><div class="outer">
+                            <p class="imgproduct"><a href="<?php echo $SanPhamMoi->getLink() ?>"><img src="<?php echo $SanPhamMoi->getThumbimage() ?>"></a></p>
+                            <h4 class="titlelink"><a href="<?php echo $SanPhamMoi->getLink() ?>"><?php echo $SanPhamMoi->title ?></a></h4>
+                            <h3>Mã sản phẩm: <?php echo $SanPhamMoi->id?></h3>
+                            <p class="button1" align="center"><a href="<?php echo $SanPhamMoi->getLink() ?>">Chi tiết</a></p>
+                           </div> 
+                        </li>
+					<?php } ?>
+                    </ul>
+                </div><!--@folder-->
+            
+            

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<base href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php echo $this->headMeta(); ?>
+<?php echo $this->headTitle(); ?>
+<link rel="shortcut icon" href="images/icon/favicon.ico" />
+<link href="css/admin.css" rel="stylesheet" media="all" type="text/css" />
+<script type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/admin.js"></script>
+<script type="text/javascript" src="js/superfish.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.1.custom.min.js"></script>
+<script type="text/javascript" src="js/tooltip.js"></script>
+<script type="text/javascript" src="js/tablesorter.js"></script>
+<script type="text/javascript" src="js/tablesorter-pager.js"></script>
+<script type="text/javascript" src="js/cookie.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<!--[if IE 6]>
+	<link href="/css/admin/ie6.css" rel="stylesheet" media="all" />
+	<script src="/js/pngfix.js"></script>
+	<script>
+	  /* EXAMPLE */
+	  DD_belatedPNG.fix('.logo, .other ul#dashboard-buttons li a');
+	</script>
+	<![endif]-->
+<!--[if IE 7]>
+	<link href="/css/admin/ie7.css" rel="stylesheet" media="all" />
+	<![endif]-->
+<script>
+DOMAIN_NAME = "http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/";
+</script>
+</head>
+<body>
+	<?php $Member = $_SESSION['Member']?>
+	<div id="header">
+		<div id="top-menu">
+			<div class="divmarquee">
+				<marquee direction="left" scrolldelay="100"> <?php echo Zend_Registry::get('Setting')->alert_administrator_area?></marquee>
+			</div>
+			<span><?php echo $this->translate('Welcome')?> <a
+				href="<?php echo $this->url(array('controller'=>'member', 'action'=>'my', 'module'=>'admin','id'=>$id))?>"
+				title="Logged in as admin"><?php echo $Member['name']?> </a> </span>
+			| <a
+				href="<?php echo $this->url(array('controller'=>'member', 'action'=>'profile', 'module'=>'admin','id'=>$id))?>"
+				title="My profile"><?php echo $this->translate('Profile')?> </a> | <a
+				href="<?php echo $this->url(array('controller'=>'member','action'=>'logout','module'=>'admin'),'',true)?>"
+				title="Logout" style="color: red; font-weight: bold"><?php echo $this->translate('Log out')?>
+			</a>
+		</div>
+		<div id="sitename" class="line">
+			<div class="bgrleft">
+				<div class="bgrright">
+					<a href="/admin" class="logo float-left" title="Admintasia"><?php echo $this->translate('Administrator')?>
+					</a>
+					<?php echo My_Plugin_Libs::getSplash()?>
+
+				</div>
+			</div>
+		</div>
+
+		<ul id="navigation" class="sf-navbar sf-js-enabled line clearfix">
+			<li style="float: right"><a
+				href="<?php echo $this->url(array('controller'=>'settings', 'action'=>'index','module'=>'admin'),'',true)?>"><?php echo $this->translate('Settings')?>
+			</a></li>
+
+			<li style="float: right"><a
+				href="<?php echo $this->url(array('controller'=>'member',	'action'=>'index','module'=>'admin'),'',true)?>"><?php echo $this->translate('Users')?>
+			</a></li>
+			<li class=""><a class="sf-with-ul"
+				href="<?php echo $this->url ( array ('controller' => 'producttype', 'action' => 'index', 'module'=>'admin'), '', true )?>">Quản
+					lý loại danh mục</a></li>
+			<li class=""><a class="sf-with-ul"
+				href="<?php echo $this->url ( array ('controller' => 'categories', 'action' => 'index', 'module'=>'admin'), '', true )?>">Quản
+					lý danh mục</a></li>
+
+			<li class=""><a class="sf-with-ul"
+				href="<?php echo $this->url ( array ('controller' => 'product', 'action' => 'index', 'module'=>'admin'), '', true )?>">Quản
+					lý sản phẩm</a>
+				<ul style="display: none; visibility: hidden;">
+					<li><a
+						href="<?php echo $this->url(array('controller'=>'product', 'action'=>'create','module'=>'admin'),'',true)?>">Thêm
+							mới sản phẩm</a></li>
+
+				</ul></li>
+			<li class=""><a class="sf-with-ul"
+				href="<?php echo $this->url ( array ('controller' => 'content', 'action' => 'index', 'module'=>'admin'), '', true )?>">Quản
+					lý nội dung</a></li>
+			<li><a
+				href="<?php echo $this->url(array('controller'=>'adv',	'action'=>'index','module'=>'admin'),'',true)?>">Quảng
+					cáo</a>
+				<ul>
+					<li><a
+						href="<?php echo $this->url(array('controller'=>'adv','action'=>'advfile','module'=>'admin'),'',true)?>">Quản
+							lý file</a></li>
+				</ul></li>
+
+		</ul>
+	</div>
+	<div id="page-wrapper">
+		<div id="main-wrapper">
+			<div id="main-content">
+				<div class="title">
+					<h3>
+						<?php echo $this->Title?>
+					</h3>
+				</div>
+				<?php echo $this->layout()->content; ?>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div id="footer">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%">
+			<tbody>
+				<tr>
+					<td>Copyright &reg; 2010 - <?php echo date('Y')?> Hitech Solutions
+						Co.,Ltd. All Rights Reserved<br>
+					
+					<b>CTY TNHH Phát Triển Giải Pháp Công Nghệ Chất Lượng
+							Cao</b><br /> Www: <a href="http://hitech-solutions.vn">http://hitech-solutions.vn</a><br />
+						Email: <a href="mailto:contact@hitech-solutions.vn">contact@hitech-solutions.vn</a>
+
+					</td>
+					<td align="right">
+						<table>
+							<tr>
+								<td><img src="http://hitech-solutions.vn/images/logo_footer.gif"
+									style="margin-right: 6px"></td>
+								<td>Powered by<br>
+								
+								<b><a href="http://hitech-solutions.vn">Hitech-Solutions.vn</a>
+								</b>
+
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

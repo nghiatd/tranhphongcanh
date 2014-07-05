@@ -1,0 +1,44 @@
+<div class="pathway clearfix">
+	<?php echo $this->action('youarehere','html',null,array('YouAreHere'=>$this->YouAreHere))?>
+</div>
+<!--[pathway]-->
+<?php echo $this->partial('index/boxbanner2.phtml')?>
+<?php echo $this->partial('index/boxtopcenter.phtml')?>
+<div class="block">
+	<div class="head clearfix">
+		<h3 class="icon-promotion">Khuyến mãi</h3>
+	</div>
+	<!--//head-->
+	<div class="content">
+		<ul class="listnews">
+                    		<?php if($this->NewsKienthuc->count()>0){?>
+            			<?php foreach ($this->NewsKienthuc as $New){?>
+                        	<li class="clearfix">
+				<div class="ui-inner">
+					<div class="photo">
+						<a href="<?php echo $New->getLinkKhuyenmai();?>"><img
+							src="<?php echo $New->getThumbImage();?>" height="96" width="126"></a>
+					</div>
+					<h3 class="ui-heading">
+						<a href="<?php echo $New->getLinkKhuyenmai();?>"><?php echo $New->title;?> </a>
+					</h3>
+					<i class="datepost"><?php echo $New->getDateAdd();  ?></i><br>
+					<div class="ui-desc"><?php echo $New->description;?></div>
+					<div class="viewdetail">
+						<a href="<?php echo $New->getLinkKhuyenmai();?>"><img
+							src="images/detail.png"></a>
+					</div>
+				</div>
+			</li>
+                           <?php } ?>
+                           	<?php }else{?>
+            			<li>Không có khuyến mãi nào.</li>
+            		<?php }?>
+                        </ul>
+		<div class="page clearfix">
+                          <?php echo $this->Pagination2($this->Pager,$this->url().'?page={%page}',$_GET,false)?>
+                        </div>
+		<!--//page-->
+	</div>
+</div>
+<!--[block]-->

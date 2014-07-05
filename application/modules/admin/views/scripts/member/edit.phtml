@@ -1,0 +1,43 @@
+ <?php if($this->error):?>
+<div class="response-msg error ui-corner-all">
+	<span>Có lỗi:</span> <?php foreach($this->error as $error){echo '- '.$error.'<br/>';}?>
+         </div>
+
+<?php endif;?>
+<form method="post">
+	<input type="hidden" name="id" value="<?php echo $this->Member->id?>" />
+	<div class="hastable">
+		<table>
+			<tr>
+				<td>Tên đăng nhập</td>
+				<td><?php echo $this->formText('username',$this->Member->username)?></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><?php echo $this->formText('email',$this->Member->email)?></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><?php echo $this->formPassword('password',$this->Member->password)?></td>
+			</tr>
+			<tr>
+				<td>Confirm Password</td>
+				<td><?php echo $this->formPassword('confirmpassword','')?></td>
+			</tr>
+			<tr>
+				<td>Tên thành viên</td>
+				<td><?php echo $this->formText('name',$this->Member->name)?></td>
+			</tr>
+
+
+			<tr>
+				<td>Trạng thái</td>
+				<td><?php echo $this->formSelect('status',$this->Member->status,'',array('Disable','Enable'))?></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><?php echo $this->formSubmit('submit','Cập nhật')?></td>
+			</tr>
+		</table>
+	</div>
+</form>

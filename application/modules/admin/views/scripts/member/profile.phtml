@@ -1,0 +1,40 @@
+ <?php if($this->error):?>
+<div class="response-msg error ui-corner-all">
+	<span>Có lỗi:</span> <?php foreach($this->error as $error){echo '- '.$error.'<br/>';}?>
+         </div>
+
+<?php endif;?>
+<div class="hastable">
+	<form action="" method="post">
+		<input type="hidden" name="id" />
+		<table>
+			<tr>
+				<td>Email</td>
+				<td><?php echo $this->formText('email',$this->Member->email)?></td>
+				<td>Tên thành viên</td>
+				<td><?php echo $this->formText('name',$this->Member->name)?></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><?php echo $this->formPassword('password',$this->Member->password)?></td>
+				<td>Confirm Password</td>
+				<td><?php echo $this->formPassword('confirmpassword','')?></td>
+			</tr>
+			<tr>
+				<td>tel</td>
+				<td colspan="3"><?php echo $this->formText('tel',$this->Member->tel)?></td>
+
+			</tr>
+			<tr>
+				<td>mobile</td>
+				<td colspan="3"><?php echo $this->formText('mobile',$this->Member->mobile)?></td>
+
+			</tr>
+
+			<tr>
+
+				<td colspan="4"><?php echo $this->formSubmit('submit','Cập nhật')?></td>
+			</tr>
+		</table>
+	</form>
+</div>

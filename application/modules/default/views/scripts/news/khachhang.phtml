@@ -1,0 +1,41 @@
+<div class="pathway clearfix">
+	<?php echo $this->action('youarehere','html',null,array('YouAreHere'=>$this->YouAreHere))?>
+</div>
+<!--[pathway]-->
+<?php echo $this->partial('index/boxbanner2.phtml')?>
+<?php echo $this->partial('index/boxtopcenter.phtml')?>
+<div class="block">
+	<div class="head clearfix">
+		<h3 class="icon-list">Khách hàng</h3>
+		<div class="FloatRight">
+			<div class="page clearfix">
+				<?php echo $this->Pagination2($this->Pager,$this->url().'?page={%page}',$_GET,false)?>
+			</div>
+		</div>
+	</div>
+	<!--//head-->
+	<div class="content">
+		<ul class="list clearfix">
+			<?php if($this->Products->count()>0){ ?>
+			<?php foreach ($this->Products as $Product){?>
+			<li><p class="thumbnail">
+					<a style="display: block"
+						href="<?php echo $Product->getLinkKhachhang(); ?>"><img
+						src="<?php echo $Product->getThumbImage(); ?>"> </a>
+				</p>
+				<p class="link">
+					<a href="<?php echo $Product->getLinkKhachhang(); ?>"><?php echo $Product->title; ?>
+					</a>
+				</p></li>
+			<?php }?>
+			<?php }elseif ($this->Products->count()<=0){?>
+			Không có khách hàng nào.
+			<?php }?>
+		</ul>
+
+		<div class="page clearfix">
+			<?php echo $this->Pagination2($this->Pager,$this->url().'?page={%page}',$_GET,false)?>
+		</div>
+	</div>
+</div>
+<!--[block]-->

@@ -1,0 +1,87 @@
+<script type="text/javascript">
+$(function() {
+	$('#gallery a').lightBox();
+	$('.navtop li a').removeClass('cur');
+	$(".navtop li a[href='/san-pham.html']").addClass('cur');
+});
+</script>
+<style type="text/css">
+	#gallery ul { list-style: none; overflow:hidden}
+	#gallery ul li {list-style:none; padding:15px 0 8px 0; text-align:center}
+</style>
+<link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen" />
+<script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
+
+<div class="twocols clearfix">
+	<div class="maincol">
+		<div class="ARproduct">
+			<p class="backto clearfix">
+				<a href="<?php echo $_SERVER['HTTP_REFERER'];?>"><span>Quay trở lại</span> </a>
+			</p>
+			
+                <div class="details">
+                    <h3><?php echo $this->Product->title ?></h3>
+                    <div class="rowintro">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr><td valign="top" width="46%"><img class="bigimage" src="<?php echo $this->Product->getThumbImage();?>" width="331" height="250" /></td>
+                                <td valign="top">
+                                    <div class="infor">
+                                        <p>Mã sản phẩm <b class="style-infor"><?php echo $this->Product->origin; ?></b></p>
+                                        <p>Chất liệu: <b class="style-infor"><?php echo $this->Product->maker; ?></b> </p>
+                                        <p>Tác giả <b class="style-infor"><?php echo $this->Product->author; ?></b></p>
+                                        <p>Kích thước <b class="style-infor"><?php echo $this->Product->power;?></b></p>
+                                        <p>Giá: <b class="price1"><?php echo number_format($this->Product->price)."  vnđ";?></b></p>
+                                        <p>Tình trạng <b class="style-infor">
+                                        	<?php if($this->Product->warranty==1){?>
+                                        		Còn Hàng
+                                        	<?php }else{?>
+                                        		Hết Hàng
+                                        	<?php }?>
+                                        </b></p>
+                                        <span><img src="images/icon/button-05.gif" /></span>
+                                        <div class="bgrlightblue">
+                                            <p class="contactphone" style=" border-bottom:none">Gọi đến số: <label class="lb-phone">0978 324 754</label></p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div><!--//rowintro-->
+                    <div class="description">
+                        <ul class="hd">
+                            <li class="center">Mô tả chi tiết</li>
+                            <li class="right"></li>
+                            <div class="ClearBoth"></div>
+                        </ul>
+                        <div class="available">
+                            <p><?php echo $this->Product->description;?></p>
+                        </div><!--/available-->
+                    </div><!--//description-->
+                </div><!--@details-->
+                
+            </div><!--e: div.maincol end chi tiet san pham-->
+					
+					
+
+		<!--[ARproduct]-->
+		<div class="gotop" >
+			<a href="" id="gotop">Lên đầu trang</a>
+		</div>
+	</div>
+	
+	
+	
+	<!--e: div.mailcol-->
+
+	<!--e: div.rightcol-->
+</div>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+$(function(){$.fn.scrollToTop=function(){$(this).hide().removeAttr("href");if($(window).scrollTop()!="0"){$(this).fadeIn("slow")}var scrollDiv=$(this);$(window).scroll(function(){if($(window).scrollTop()=="0"){$(scrollDiv).fadeOut("slow")}else{$(scrollDiv).fadeIn("slow")}});$(this).click(function(){$("html, body").animate({scrollTop:0},"slow")})}});
+$(function() {
+$("#gotop").scrollToTop();
+});
+//]]>
+</script>

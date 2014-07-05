@@ -1,0 +1,63 @@
+<div class="three-column">
+	<div class="column ui-sortable" style="">
+    	<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+        	<div class="portlet-header ui-widget-header"><span class=""></span>
+            	Thông tin tài khoản của bạn</div>
+            <div class="portlet-content hastable">
+	            <table>
+	<tr>
+		<td>Tài khoản</td>
+		<td><?php echo $this->My->email?></td>
+	</tr>
+	<tr>
+		<td>Tên thành viên</td>
+		<td><?php echo $this->My->name?></td>
+	</tr>
+	<tr>
+		<td>Mobile</td>
+		<td><?php echo $this->My->mobile?></td>
+	</tr>
+	<tr>
+		<td>Tel</td>
+		<td><?php echo $this->My->tel?></td>
+	</tr>
+	
+</table>
+			</div>							
+    	</div>
+	</div>
+	<div class="column ui-sortable" style="width:700px">
+    	<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+        	<div class="portlet-header ui-widget-header"><span class=""></span>
+            	Ghi nhớ lịch làm việc</div>
+            <div class="portlet-content hastable">
+	            
+				
+<div class="hastable">
+<center><?php echo $this->error?></center>
+<?php if($this->Log):?>
+<table>
+	<thead>
+		<tr>
+			<td>Thời điểm</td>
+			<td>Phân mục</td>
+			<td>Hành động</td>
+			<td>IP</td>
+		</tr>
+	</thead>
+	<tbody style="overflow: scroll !important; height: 227px;">
+	<?php foreach($this->Log as $log):?>
+		<tr>
+			<td><?php echo $log['time']?></td>
+			<td><?php echo $log['section']?></td>
+			<td><?php echo $log['action']?></td>
+			<td><?php echo $log['ip']?></td>
+		</tr>
+	<?php endforeach;?>
+	</tbody>
+</table>
+<?php endif;?>
+</div>
+			</div>							
+    	</div>
+	</div>	

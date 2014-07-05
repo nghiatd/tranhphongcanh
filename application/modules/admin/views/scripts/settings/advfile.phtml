@@ -1,0 +1,45 @@
+<table>
+	<tr valign="top">
+		<td width="80%" class="hastable">
+			<table>
+				<thead>
+					<tr>
+						<td>File</td>
+						<td>Thông tin</td>
+					</tr>
+				</thead>
+				<tbody>
+			<?php foreach($this->Adv as $file):?>
+				<tr>
+						<td>
+					<?php if($file['extension']=='swf'):?>
+					<?php else:?>
+					<img src="/uploads/adv/<?php echo $file['name']?>" height="100" />
+					<?php endif;?></td>
+						<td>
+						Name: <?php echo $file['name']?><br />
+						Size: <?php echo My_Plugin_Libs::toSize($file['size'])?><br />
+						Ngày tạo: <?php echo $file['modified']?><br /> URL: <input
+							type="text" size="45"
+							value="/uploads/adv/<?php echo $file['name']?>" /> <a
+							href="<?php echo $this->url()?>?delete=<?php echo $file['name']?>">Xóa</a>
+						</td>
+					</tr>
+			<?php endforeach;?>
+			</tbody>
+			</table>
+
+		</td>
+		<td>Upload file lên server:
+			<form method="post" action="" enctype="multipart/form-data">
+				<div>
+					<input type="file" class="multi" name="images[]"
+						accept="gif|jpg|png|swf" />
+				</div>
+				<br /> <input type="submit" value="Upload" />
+			</form>
+		</td>
+	</tr>
+</table>
+<script src='js/jquery.MultiFile.pack.js' type="text/javascript"
+	language="javascript"></script>

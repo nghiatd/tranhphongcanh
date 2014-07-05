@@ -1,0 +1,57 @@
+    <?php if($this->error):?>
+<div class="ui-widget">
+	<div class="ui-state-error ui-corner-all" style="padding: .7em;">
+		<p>
+			<span class="ui-icon ui-icon-alert"
+				style="float: left; margin-right: .3em;"></span> <strong>Có lỗi:</strong><br />
+		
+		
+		<div style="padding-left: 20px">
+				<?php foreach($this->error as $error){echo '- '.$error.'<br/>';}?>
+				</div>
+		</p>
+	</div>
+</div>
+<?php endif;?>
+
+<div id="tabs" class="hastable">
+
+	<form action="" method="post" enctype="multipart/form-data">
+		<div id="">
+			<table>
+				<tr>
+					<td>Danh mục</td>
+					<td><?php echo $this->formSelect('categories_id',$_REQUEST['categories_id'],array(),Contents::$Categories)?></td>
+				</tr>
+				<tr>
+					<td>Tiêu đề bài viết</td>
+					<td><?php echo $this->formText('title',$_REQUEST['title'],array('size'=>60 ))?></td>
+				</tr>
+				<tr>
+					<td>Nguồn</td>
+					<td><?php echo $this->formText('author',$_REQUEST['author'],array('size'=>60 ))?></td>
+				</tr>
+				<tr>
+					<td colspan="">Ảnh đại diện: </td>
+					<td><?php echo $this->formFile('image')?></td>
+				</tr>
+				<tr>
+					<td>Trích dẫn</td>
+					<td><?php echo $this->formTextarea('description',$_REQUEST['description'],array('rows'=>5,'class'=>'mceEditor'))?></td>
+				</tr>
+				<tr>
+					<td>Chi tiết</td>
+					<td><?php echo $this->formTextarea('detail',$_REQUEST['detail'],array('rows'=>5,'class'=>'mceEditor'))?></td>
+				</tr>
+
+				<tr>
+					<td>Trạng thái</td>
+					<td><?php echo $this->formSelect('status',$_REQUEST['status'],'',array('Disable','Enable'))?></td>
+				</tr>
+			</table>
+		</div>
+
+		<input type="submit" value="Lưu lại" /> <input type="button"
+			value="Quay lại" onclick="javascript:history.back();" />
+	</form>
+</div>

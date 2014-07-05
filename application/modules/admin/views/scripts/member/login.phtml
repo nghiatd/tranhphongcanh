@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<title><?php echo $this->translate('Login_head')?></title>
+<base href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+
+<link
+	href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/jquery-ui-1.8.23.custom.css"
+	rel="stylesheet" media="all" type="text/css" />
+<link
+	href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/admin.css"
+	rel="stylesheet" media="all" type="text/css" />
+
+</head>
+
+<body style="background: white">
+	<form action="" method="post" name="frmLogin" id="frmLogin">
+		<div id="box"
+			style="margin: 87px auto 0 auto; width: 500px; padding: 0;"
+			class="memberlogin">
+    	<?php if($this->error):?>
+    	<div class="ui-widget">
+				<div style="margin-top: 20px; padding: 0 .7em;"
+					class="ui-state-highlight ui-corner-all">
+					<p>
+						<span style="float: left; margin-right: .3em;"
+							class="ui-icon ui-icon-info"></span>
+				<?php echo $this->translate('Login incorrect')?></p>
+				</div>
+			</div>
+			<br />
+    	<?php endif;?>
+    	<ul class="head line">
+				<li class="left"></li>
+				<li class="center"><h1><?php echo $this->translate('Login_title')?></h1></li>
+				<li class="right"></li>
+			</ul>
+			<div class="content clearfix">
+				<a class="logohqts" href="http://hitech-solutions.vn"
+					target="_blank"><img id="logo" src="css/images/hqts.png" border="0"
+					width="90" /></a>
+				<div class="frmlog">
+					<p style="color: #173778; padding: 0 0 5px 0"><?php echo $this->translate('Input your username and password for Login')?></p>
+					<table cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td width="105"><?php echo $this->translate('Username')?></td>
+							<td><input type="text" name="username" id="username"
+								class="Field150 inputs" value="" /></td>
+						</tr>
+						<tr>
+							<td><?php echo $this->translate('Password')?></td>
+							<td><input type="password" name="password" id="password"
+								class="Field150 inputs" value="" /></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+							<td><input type="submit" name="SubmitButton"
+								id="LoginSubmitButton"
+								value="<?php echo $this->translate('Login_button')?>"
+								class="FormButton" /> &nbsp;&nbsp; <a href="admin/member/forgot"
+								class="forgot"><?php echo $this->translate('Lost password')?></a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+	</form>
+
+</body>
+</html>

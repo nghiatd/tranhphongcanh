@@ -1,0 +1,63 @@
+
+<div class="hastable filter">
+<form action="" method="get">
+<table>
+	<thead>
+		<tr>
+			
+			<th>Vị trí</th>
+		</tr>
+	</thead>
+	<tr>
+		
+		<td>
+		<select name="location">
+		<option value="">--Select--</option>
+		<?php foreach (Ads::$Location as $key=>$type):?>
+			<option value="<?php echo $key?>" <?php if($key == $this->filter['location']):?> selected="selected" <?php endif;?>><?php echo $type?></option>
+		<?php endforeach;?>
+		</select>
+		<td rowspan="2"><input type="submit" value="Tìm" /></td>
+	</tr>
+</table>
+</form>
+</div>
+<div class="hastable ">
+<a href="<?php echo $this->url(array('controller'=>'adv','action'=>'create','module'=>'admin'),'',true)?>"><input type="button" value="Tạo mới quảng cáo" ></input></a>
+<br/><br/>
+<form name="myform" class="pager-form" method="post" action="">
+<table >
+	<thead>
+		<tr>
+			<th>Tiêu đề</th>
+			<th>Link</th>
+			<th>Hình ảnh</th>
+			<th>Vị trí</th>
+			<th>Width / Height</th>
+			<th>Trạng thái</th>
+			<th width="70px">Options</th>
+		</tr>
+	</thead>
+	<tbody>
+    <?php foreach($this->Adv as $adv):?>
+    <tr>
+    		<td><?php echo $adv->title?></td>
+			<td><?php echo $adv->link?></td>	
+			<td><img alt="" src="uploads/<?php echo $adv->file?>"  height="100px"> </td>
+			<td><?php echo $adv->getLocation()?></td>
+			<td><?php echo $adv->width .' / ' . $adv->height?></td>
+			<td><?php echo ($adv->status)?'Yes':'No'?></td>
+			<td><a class="btn_no_text btn ui-state-default ui-corner-all tooltip"
+				href="<?php echo $this->url(array('controller'=>'adv','action'=>'edit','id'=>$adv->id))?>"><span
+				class="ui-icon ui-icon-wrench"></span></a> <a
+				href="<?php echo $this->url(array('controller'=>'adv','action'=>'delete','id'=>$adv->id))?>"
+				class="btn_no_text btn ui-state-default ui-corner-all tooltip"><span
+				class="ui-icon ui-icon-circle-close"></span></a>
+				</td>
+		</tr>
+    <?php endforeach;?>
+    </tbody>
+</table>
+</form>
+<div class="paging"><?php echo $this->Pagination($this->Pager,$this->url().'?page={%page}',$_GET)?></div>	
+</div>

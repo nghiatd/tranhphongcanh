@@ -1,0 +1,136 @@
+
+<?php if($this->error):?>
+<div class="response-msg error ui-corner-all">
+	<span>Có lỗi:</span>
+	<?php foreach($this->error as $error){
+		echo '- '.$error.'<br/>';
+}?>
+</div>
+<?php endif;?>
+<div id="tabs" class="hastable">
+
+	<ul>
+		<li><a href="#tabs-1">Thông tin cơ bản</a></li>
+		<li><a href="#tabs-2">Hình ảnh</a></li>
+	</ul>
+	<form action="" method="post" enctype="multipart/form-data">
+		<div id="tabs-1">
+			<table>
+				<tr>
+					<td>Loại danh mục</td>
+					<td colspan="3"><?php echo $this->formSelect ( 'product_type_id', $_REQUEST['product_type_id'], '', ProductType::getOption ( array ('0' => '- Danh mục -' ) ) )?>
+					</td>
+				</tr>
+				<tr>
+					<td>Danh mục</td>
+					<td colspan="3"><?php echo $this->formSelect ( 'product_categories_id', $_REQUEST['product_categories_id'], '', ProductCategories::getOption ( array ('0' => '- Danh mục -' ) ) )?>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Tên sản phẩm</td>
+					<td colspan="3"><?php echo $this->formText('title',$_REQUEST['title'],array('size'=>'100'))?>
+					</td>
+
+				</tr>
+
+				<tr>
+					<td>Tình trạng</td>
+					<td><?php echo $this->formSelect('warranty',$this->Products->warranty,'',array('Disable','Enable'))?>
+					</td>
+					<td>Chất liệu</td>
+					<td colspan=""><?php echo $this->formText('maker',$this->Products->maker,array('size'=>'40'))?>
+					</td>
+				</tr>
+				<tr>
+					<td>Kích Thước</td>
+					<td><?php echo $this->formText('power',$this->Products->power,array('size'=>'40'))?></td>
+					<td>Giá</td>
+					<td colspan=""><?php echo $this->formText('price',$this->Products->price,array('size'=>'40'))?>
+					</td>
+				</tr>
+				<tr>
+					<td>Mã sản phẩm</td>
+					<td><?php echo $this->formText('origin',$this->Products->origin,array('size'=>'40'))?>
+					</td>
+					<td>Trạng thái</td>
+					<td><?php echo $this->formSelect('status',$this->Products->status,'',array('Disable','Enable'))?>
+					</td>
+				</tr>
+				<tr>
+					<td>Khuyến mại</td>
+					<td><?php echo $this->formText('is_sale_off',$this->Products->is_sale_off,array('size'=>'40'))?>
+					</td>
+					<td>Sản phẩm mới</td>
+					<td><?php echo $this->formSelect('is_new',$this->Products->is_new,'',array('1'=>'Yes','0'=>'No'))?>
+					</td>
+				</tr>
+
+			</table>
+			<div style="clear: both">
+				Mô tả chi tiết<br />
+				<?php echo $this->formTextarea('description',$_REQUEST['description'],array('style'=>'width:600px;height:150px','class'=>'mceEditor'))?>
+			</div>
+
+		</div>
+
+		<div id="tabs-2">
+			<table>
+				<tr>
+					<td width="50%">
+						<table>
+							<tr>
+								<td colspan=""><div>
+										Ảnh đại diện:
+										<?php echo $this->formFile('image')?>
+									</div></td>
+							</tr>
+						</table>
+					</td>
+					<td width="600" class="hastable">Chọn những file ảnh bạn muốn đưa
+						lên. Bạn có thể chọn nhiều file ảnh cho sản phẩm<br />
+						<table id="table_file">
+							<thead>
+								<tr>
+									<td>Ảnh</td>
+									<td>Chú thích</td>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table> <input type="hidden" id="cacher_file" value="0" />
+						<button onclick="initAppendFile();return false;">Thêm ảnh</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<?php echo $this->formSubmit('submit','Lưu lại')?>
+		<a href="javascript:history.back();"><input type="button"
+			value="Quay lại"></input> </a>
+	</form>
+</div>
+
+<input type="hidden" id="cacher" value="0" />
+<script type="text/javascript">
+$(function() {	
+	$('#tabs').tabs();	
+	
+
+});
+</script>
+<script type="text/javascript">	
+	$(function(){	
+		$('input[name=img_remote]').blur(function(){
+			$('#remote_url_preview').html('<img src="'+$(this).val()+'" height="100">');
+		});
+		
+		
+
+	});
+</script>
+
+	<script src='js/jquery.MultiFile.pack.js' type="text/javascript"
+		language="javascript"></script>
+<script src="/js/jquery.MultiFile.pack.js"
+	type="text/javascript" language="javascript"></script>

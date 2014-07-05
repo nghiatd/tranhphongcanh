@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence" adminlang="en_US" srclang="de-at" o-tmf="abc" creationtool="XYZTool" ></header>
+	<body>
+		<!-- UI Control -->
+		<tu tuid="Save">
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+			<tuv xml:lang="vi"><seg>Lưu lại</seg></tuv>
+		</tu>
+		<!-- UI Control -->
+		
+		<tu tuid="Administrator">
+			<tuv xml:lang="en"><seg>Administrator</seg></tuv>
+			<tuv xml:lang="vi"><seg>Quản lý hệ thống</seg></tuv>
+		</tu>
+		<tu tuid="Profile">
+			<tuv xml:lang="en"><seg>Profile</seg></tuv>
+			<tuv xml:lang="vi"><seg>Tài khoản</seg></tuv>
+		</tu>
+		<tu tuid="Log out">
+			<tuv xml:lang="en"><seg>Log out</seg></tuv>
+			<tuv xml:lang="vi"><seg>Thoát</seg></tuv>
+		</tu>
+		<tu tuid="Welcome">
+			<tuv xml:lang="en"><seg>Welcome</seg></tuv>
+			<tuv xml:lang="vi"><seg>Xin chào</seg></tuv>
+		</tu>
+		<tu tuid="Settings">
+			<tuv xml:lang="en"><seg>Settings</seg></tuv>
+			<tuv xml:lang="vi"><seg>Cấu hình</seg></tuv>
+		</tu>
+		<tu tuid="Users">
+			<tuv xml:lang="en"><seg>Users</seg></tuv>
+			<tuv xml:lang="vi"><seg>Người dùng</seg></tuv>
+		</tu>
+	</body>
+</tmx>

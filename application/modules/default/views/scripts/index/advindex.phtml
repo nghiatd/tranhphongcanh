@@ -1,0 +1,13 @@
+
+<?php $advs=Ads::getWithOutPage(array('status=?'=>1,'location=?'=>'5'));?>
+
+                <?php foreach($advs as $adv){?>
+                
+                <div class="ad1">
+					<a href="<?php echo $adv->link ;?>">
+					<img width="230" height="235" src="/uploads/<?php echo $adv->file;?>"/>
+					</a>
+				</div>
+				
+				<?php }?>
+           

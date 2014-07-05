@@ -1,0 +1,34 @@
+<span class="FloatLeft"><a href="."><img src="images/icon/icon_home.gif"></a></span>
+<span class="FloatLeft curpage">
+                <?php
+																if ($this->YouAreHere) :
+																	$counter = count ( $this->YouAreHere );
+																	?>
+	<?php foreach($this->YouAreHere as $item): ++$i;?>
+	<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+	<?php if($item['id']):?>
+	
+																		<?php endif;
+																		if (($counter - $i) == 0) :
+																			echo '&gt; ' . $item ['name'];
+																		 else :
+																			if ($item ['link']) :
+																				?>
+				<a href="<?php echo '/'.$item['link']?>" itemprop="url">&gt; <?php echo $item['name']?></a>
+			<?php else:?>
+				<a href="<?php echo $this->url($item['params'],$item['router'])?>"
+		itemprop="url">&gt; <?php echo $item['name']?></a>		
+			
+																			<?php
+endif;
+																		endif;
+																		?>
+	</span>
+	<?php
+																	
+endforeach
+																	;
+																
+endif;
+																?>
+</span>

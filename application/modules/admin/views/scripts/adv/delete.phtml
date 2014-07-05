@@ -1,0 +1,16 @@
+<?php if($this->Adv):?>
+<form method="post">
+	<div class="response-msg notice ui-corner-all">
+		<span>Chú ý!</span>Bạn có chắc chắn muốn quảng cáo <b><?php echo $this->Adv->link?></b>
+		không?.<br />
+	</div>           
+
+<?php echo $this->formSubmit('submit','Tôi chắc chắn',array('class'=>'submit'))?>
+<?php echo $this->formButton('cancel','Quay lại',array('onclick'=>'history.back()','class'=>'submit'))?>
+</form>
+<?php else:?>
+<div class="response-msg error ui-corner-all">
+	<span>Có lỗi:</span> Quảng cáo bạn cần xóa không tồn
+	tại. Hãy kiểm tra lại
+</div>
+<?php endif;?>

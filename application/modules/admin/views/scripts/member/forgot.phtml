@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<title><?php echo $this->translate('Login_forgot')?></title>
+<base href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+
+<link
+	href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/jquery-ui-1.8.23.custom.css"
+	rel="stylesheet" media="all" type="text/css" />
+<link
+	href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/admin.css"
+	rel="stylesheet" media="all" type="text/css" />
+
+</head>
+
+<body>
+
+	<div id="box" style="position: absolute; top: 3.5px; left: 506px;">
+		<table>
+			<tr>
+				<td
+					style="border: solid 2px #DDD; padding: 0 20px 20px 20px; background-color: #FFF;">
+					<table>
+						<tr>
+							<td class="Heading1"><a href="index.php"><img id="logo"
+									src="/images/logo.gif" border="0" /></a></td>
+						</tr>
+						<tr>
+							<td style="padding: 10px 0px 5px 0px"><?php echo $this->translate('Input your email to renew password')?></td>
+						</tr>
+						<tr>
+							<td>
+								<form action="" method="post">
+									<table>
+										<tr>
+											<td nowrap style="padding: 0px 10px 0px 10px">Email:</td>
+											<td><input type="text" name="email" id="email"
+												class="Field150" value="" /></td>
+										</tr>
+
+										<tr>
+											<td>&nbsp;</td>
+											<td><br /> <input type="submit" name="SubmitButton"
+												id="LoginSubmitButton" value="Submit" class="FormButton" />
+											</td>
+
+										</tr>
+										<tr>
+											<td class="Gap"></td>
+										</tr>
+										<tr>
+											<td colspan="2"></td>
+										</tr>
+
+									</table>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<td><div class="RightInputLogin"><?php echo $this->error?></div></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+		</table>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php echo $this->headTitle(' - '.Zend_Registry::get ( 'Setting')->WEBSITE_NAME); ?>
+
+<?php echo $this->headMeta(); ?>
+
+<base href="<?php echo DOMAIN?>" />
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script type="text/javascript">
+var DOMAIN_NAME = 'http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>';
+	
+</script>
+<script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+var DOMAIN_NAME = 'http://tranhsondaudep.net';
+
+	
+</script>
+<script src="/js/fancybox/jquery.fancybox-1.3.4.pack.js"
+	type="text/javascript"></script>
+<link media="screen" href="/js/fancybox/jquery.fancybox-1.3.4.css"
+	type="text/css" rel="stylesheet" />
+
+<script language="javascript" type="text/javascript" src="js/g.jquery.easing.js"></script>
+<script language="javascript" type="text/javascript" src="js/g.script.js"></script>
+
+<script language="javascript" type="text/javascript" src="js/script.js"></script>
+
+<script type="text/javascript" id="sourcecode">
+    $(function()
+    {
+        $('.scroll-pane').jScrollPane(
+            {
+                showArrows: true,
+                horizontalGutter: 30,
+                verticalGutter: 30
+            }
+        );
+    });
+</script>
+<script language="javascript" type="text/javascript"
+	src="js/jquery.jscrollpane.min.js"></script>
+	
+<!-- slide banner -->
+	<link rel="stylesheet" href="css/slidebanner/bjqs.css">
+
+    <!-- some pretty fonts for this demo page - not required for the slider -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300' rel='stylesheet' type='text/css'> 
+
+    <!-- demo.css contains additional styles used to set up this demo page - not required for the slider --> 
+    <link rel="stylesheet" href="css/slidebanner/demo.css">
+
+    <!-- load jQuery and the plugin -->
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="js/slidebanner/bjqs-1.3.min.js"></script>	
+<!-- end sliderbanner -->	
+    <script language="javascript" type="text/javascript" src="js/cart/cart.js"></script>
+<!-- floating box -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=YOUR-PROFILE-ID"></script>
+    <style>
+.addthis_toolbox.atfixed {
+    position: fixed;
+    top: 10%;
+    left: 20px;
+    border: 1px solid #eee;
+    padding: 5px 5px 1px;
+    width: 180px;
+    height:auto;;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    float:right;
+}
+.addthis_toolbox.atfixed.active{
+	display:hidden;
+}
+.addthis_toolbox .custom_images a {
+    width: 32px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.custom_images{
+	
+	
+	color:white;
+}
+
+.addthis_toolbox .custom_images a img { border: 0; margin: 0 0 1px; opacity: 1.0; }
+.addthis_toolbox .custom_images a:hover img { margin: 1px 0 0; opacity: 0.75; }
+	</style>    
+</head>
+
+<body>
+<div id="pagewidth" class="corner-all">
+	<div id="header">
+    	<div class="top clearfix">
+    		<a class="FloatLeft" href="#"><img src="images/logo.png" /></a>
+            <div class="search">
+            	
+            	<table cellpadding="0" cellspacing="0" border="0">
+                	<form method="POST" action="tim-kiem.html" name="tk">
+                	<tr><td><input type="text" class="inputsearch" name="keyword"
+                	onblur="if (this.value=='') this.value='Gõ từ khóa tìm kiếm';" onfocus="if (this.value=='Gõ từ khóa tìm kiếm') this.value='';" value="Gõ từ khóa tìm kiếm">
+                	</td>
+                    	<td><input type="submit" class="imgeearch" value="Tìm kiếm" /></td>
+                    </tr>
+                    </form>
+                </table>
+                
+            </div>
+            <script>
+				/*$(document).ready(function(){
+						$('.imgeearch').click(function(){});
+					});*/
+            </script>
+            <div class="support">
+            	<img src="images/icon-phone.png" />
+                <h2>Điện thoại hỗ trợ khách hàng</h2>
+                <h1><?php $set= Settings::getAll() ;?>
+                		<?php echo $set[2][value];?>
+                </h1>
+            </div>
+            
+            <div class="clearfix"></div>
+            
+        </div><!--@top-->
+        <div class="navtop">
+        	<ul>
+        		<li><a href="." class="cur">Trang chủ</a></li>
+            	<li><a href="<?php echo $this->url(array(),'content') ?>">Giới thiệu</a></li>
+                <li><a href="<?php echo $this->url(array(),'news') ?>">Tin tức</a></li>
+                <li><a href="<?php echo $this->url(array(),'products') ?>">Tranh nghệ thuật</a></li>
+                <li><a href="<?php echo $this->url(array(),'contact') ?>">Liên hệ</a></li>
+                
+            </ul>
+        </div><!--@navtop-->
+        
+        <script>
+			$(document).ready(function(){
+				var url=document.location.pathname;
+				//alert(url);
+				var currentLink = $(".navtop li a[href='" + url + "']");
+				//alert(currentLink);
+				if(url!="/"){
+					$(".navtop li a").removeClass('cur');
+		            currentLink.addClass("cur");
+				}
+			});
+        </script>
+    </div><!--E: div#header-->
+    <div id="bg">
+        <div id="center"><div class="clearfix maincontent">
+            <div class="banner"><?php echo $this->render('index/boxbanner2.phtml')?></div><!--end_banner-->
+            
+            <div class="you-are-here">
+                <img src="images/icon/icon-02.gif" />
+                <a href="#">Trang chủ</a>
+            </div><!--end_you-are-here-->
+            
+            <div class="pathway clearfix">
+				<?php echo $this->action('youarehere','html',null,array('YouAreHere'=>$this->YouAreHere))?>
+			</div>
+            <div class="leftcol">
+                <div class="category">
+                    <div class="category-head"><h3>Danh mục tranh nghệ thuật</h3></div>
+                    
+                    <ul>
+                   		 <?php foreach (ProductCategories::getAll() as $Category){ ?>
+                    	<li><a href="<?php echo $Category->getLink()?>"><?php echo $Category->title?></a></li>
+                    	 <?php } ?>
+                    </ul>
+                    
+                </div><!--@category-->
+                <div class="news">
+                    <div class="news-top"><h3>Tin tức</h3></div>
+                    <div class="block corner-all">
+                        <ul>
+                        	<?php foreach (Contents::getWithOutPage(array('categories_id=?'=>1,'status=?'=>1),6) as $TinTuc){ ?>
+                            <li><a href="<?php echo $TinTuc->getLink() ?>"><img src="<?php echo $TinTuc->getThumbImage();?>" /><?php echo $TinTuc->title; ?></a></li>
+                            <p class="clearfix"></p>
+                            <?php } ?>
+                            <p class="clearfix"></p>
+                            <span><a href="<?php echo $this->url(array(),news) ?>">>> Xem tất cả</a></span>
+                            <p class="clearfix"></p>
+                        </ul>
+                    </div><!--@block-->
+                </div><!--news--> 
+                
+                <div class="adv"><?php //echo $this->render('index/advindex.phtml');?></div> 
+               
+            </div><!--e: div.leftcol-->
+            
+            <div class="maincol">
+            	<?php echo $this->layout()->content;?>
+            	
+            </div><!--e: div.maincol-->
+<!-- floating box -->
+            <!-- AddThis Fixed-Positioned Toolbox -->
+<div class="addthis_toolbox">   
+    <div class="custom_images">
+        
+    </div>
+</div>
+<!-- end floating box -->
+            
+        </div></div><!--E: div#center-->
+    </div><!--end_bg-->
+    <div id="footer">
+    	<div class="navbot">
+        	<a href="index.html">Trang chủ</a> | <a href="gioi-thieu.html">Giới thiệu</a> | <a href="tin-tuc.html">Tin tức</a> | <a href="san-pham.html">Sản phẩm</a> | <a href="lien-he.html">Liên hệ</a>
+        </div>
+        <div class="copyright clearfix">
+        	<span class="FloatLeft"><h2><?php echo $set[0][value]?></h2>
+            	<?php echo $set[0][value]?><br />
+                Điện thoại: <?php echo $set[2][value]?>   -  Website: <a href="#"><?php echo $set[4][value]?></a>
+            </span>
+            <span class="FloatRight"><a href="#"><img style="margin-top:10px" src="images/q.png" /></a></span>
+        </div>
+        
+    </div><!--E: div#footer-->
+</div>
+
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+	$('.add_cart').click(function(){
+		$(this).hide(800).show(800);
+		var id=$(this).attr('id');
+		pos(id,'add');
+		$('.addthis_toolbox').addClass('addthis_toolbox atfixed');	
+	});
+	
+	$('.custom_images').delegate('.del','click',function(){
+		if(confirm('Ban co thuc su muon xoa')){
+			var id=$(this).attr('id');
+			pos(id,'xoa');
+			$('.addthis_toolbox').addClass('addthis_toolbox atfixed');
+		}
+	});
+	
+	function pos(id,act){
+		$.ajax({
+			type:'POST',
+			url:'/add-cart.html',
+			data:{id:id,act:act},
+			success:function(data){
+				if(data){
+					var total=0;
+					$('.custom_images').html("");				
+					$.each(data,function(i,value){
+						var product=value.split(",");
+						var str='<div id='+product[2]+'><label>San pham : '+product[0]+'</label><br> <label>Gia : '+product[1]+'</label><br><label>So luong : '+product[3]+'</label><br><div  id='+product[2]+'> <button class="del" id='+product[2]+' >Del</button> </div><hr></div><hr>';
+						$('.custom_images').append(str);
+							total=total+parseInt(product[1]*product[3]);	
+					});
+						$('.custom_images').append('<label><b>Tong tien : '+total+'  VND</b></label>');
+				}		
+			},
+		});
+	}	
+});
+ </script>
+ 
+ 

@@ -1,0 +1,33 @@
+<div class="promotion">
+	<div class="head corner-top">
+		<h3>Tin khuyến mãi</h3>
+	</div>
+	<div class="content">
+		<div class="bgrleft">
+			<div class="bgrright">
+				<div class="bgrbottom">
+                        	<?php foreach ($this->NewsSale as $News){?>
+                            <div class="bgrgradient">
+						<div style="padding: 0 8px">
+							<p class="photographic">
+								<a href="<?php echo $News->getLink();?>"><img
+									src="<?php echo $News->getThumbImage();?>" width="200"
+									height="100" /></a>
+							</p>
+							<p>
+								<b><a href="<?php echo $News->getLink();?>" class="clrdark"><?php echo $News->title;?></a></b>
+							</p>
+						</div>
+						<p class="bt-detail" align="right">
+							<a class="corner-left" href="<?php echo $News->getLink();?>">Chi
+								tiết</a>
+						</p>
+					</div>
+                            <?php }?>
+                        </div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!--[promotion]-->

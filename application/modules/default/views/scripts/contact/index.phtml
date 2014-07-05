@@ -1,0 +1,96 @@
+
+<div class="block">
+	<div class="head clearfix">
+		<h3 class="icon-contact">Liên hệ</h3>
+	</div>
+	<!--//head-->
+	<div class="content">
+		<div class="contact clearfix">
+			<div class="infor-contact">
+				<p class="txt">Mọi thắc mắc, ý kiến khách hàng gửi cho chúng tôi
+					theo form mẫu sau. Chúng tôi sẽ phục vụ bạn một cách tốt nhất có
+					thể.</p>
+				<p>
+					<b style="color: #cc0000"><?php echo Zend_Registry::get ( 'Setting')->COMPANY?></b><br>
+					Địa chỉ: <b><?php echo Zend_Registry::get ( 'Setting')->ADDRESS?></b><br> Tel: <b><?php echo Zend_Registry::get ( 'Setting')->MOBILE?></b> - Email: <b><a href="<?php echo Zend_Registry::get ( 'Setting')->EMAIL?>"
+						style="color: #333"><?php echo Zend_Registry::get ( 'Setting')->EMAIL?></a> </b> - Wesbsite: <b><?php echo Zend_Registry::get ( 'Setting')->WEBSITE?></b>
+				</p>
+				<div class="map">
+			
+				<input type="hidden" name="map" id="map"
+					value="20.9650105,105.7695288,13" />
+					
+					<!-- <input type="hidden" name="map" id="map"
+					value="20.97506458402296,105.79367280006409,16" />-->
+				<div id="map_canvas" style="border: 1px solid #666666;"></div>
+				</div>
+				
+				<form action="" method="post">
+					<div class="frmcontact">
+						<ul>
+							<?php 
+							if(count($this->error)){
+                                                foreach ($this->error as $err){
+                                                echo $err.'<br>';
+                                                }
+                                            }?>
+						</ul>
+
+						<ul class="frm">
+							<li class="clearfix"><label class="dl">Họ tên:</label>
+								<div class="dr">
+									<input class="input-text" type="text" name="name">
+								</div>
+							</li>
+							<li class="clearfix"><label class="dl">Địa chỉ:</label>
+								<div class="dr">
+									<input class="input-text" type="text" name="address">
+								</div>
+							</li>
+							<li class="clearfix"><label class="dl">Số điện thoại:</label>
+								<div class="dr">
+									<input class="input-text" type="text" name="phone">
+								</div>
+							</li>
+							<li class="clearfix"><label class="dl">Email:</label>
+								<div class="dr">
+									<input class="input-text" type="text" name="email">
+								</div>
+							</li>
+							<li class="clearfix"><label class="dl">Tiêu đề:</label>
+								<div class="dr">
+									<input class="input-text" type="text" name="subject">
+								</div>
+							</li>
+							<li class="clearfix"><label class="dl">Nội dung:</label>
+								<div class="dr">
+									<textarea class="area-content" name="content"></textarea>
+								</div>
+							</li>
+							<li class="clearfix"><label class="dl">&nbsp;</label>
+								<div class="dr">
+									<input class="submit-send" value="Send" type="submit">
+								</div>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+			<!--//infor-contact-->
+			
+		</div>
+	</div>
+</div>
+<!--[block]-->
+<script
+	src="http://maps.google.com/maps?file=api&amp;v=2&sensor=false&key=AIzaSyAnZ50JTnav6iRX8pUag7hrkvW8v4pInW8"
+	type="text/javascript"></script>
+<script
+	language="javascript" type="text/javascript" src="js/script.js"></script>
+
+<script language="javascript" type="text/javascript">
+$(function() {
+	$("#contact").addClass('select');
+	initializeGmapRegister($("#map"),687,477);
+});
+</script>

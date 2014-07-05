@@ -1,0 +1,54 @@
+<div class="hastable">
+
+	<a
+		href="<?php echo $this->url(array('controller'=>'content','action'=>'create'))?>"><input
+		type="button" value="Thêm bài viết"></input></a>
+
+	<div style="clear: both;">
+		<table cellspacing="0" cellpadding="0" width="100%" class="tbl_list">
+			<tbody>
+			
+			
+			<thead>
+				<th>Danh mục</th>
+				<th>Tên bài viết</th>
+				<th>Ngày tạo</th>
+				<th>Kích hoạt</th>
+				<th>Sửa</th>
+				<th>Xóa</th>
+
+			</thead>
+		<?php foreach($this->Content as $Content):?>
+		<tr class="<?php ++$i; echo($i%2)?'first':'second'?>">
+				<td align="center"><?php echo $Content->getCategories() ?></td>
+				<td><?php echo $Content->title?></td>
+				<td><?php echo $Content->getCreatedDate()?></td>
+				<td><?php echo ($Content->status)?'Yes':'No'?></td>
+				<td><a
+					class="btn_no_text btn ui-state-default ui-corner-all tooltip"
+					href="<?php echo $this->url(array('controller'=>'content','action'=>'edit','id'=>$Content->id))?>"><span
+						class="ui-icon ui-icon-wrench"></span></a></td>
+				<td><a
+					class="btn_no_text btn ui-state-default ui-corner-all tooltip"
+					href="<?php echo $this->url(array('controller'=>'content','action'=>'delete','id'=>$Content->id))?>"><span
+						class="ui-icon ui-icon-circle-close"></span></a></td>
+
+			</tr>
+		<?php endforeach;?>
+	</tbody>
+		</table>
+		<div class="paging"><?php echo $this->Pagination($this->Pager,'?page={%page}')?></div>
+	</div>
+	<div id="dialog-Review-view" title="Review detail">
+		<form>
+			<div id="dialog-Review-view_inner"></div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	(function() {
+    initContentDialog();
+	});
+	$('#tim').val('<?php echo $this->filterType?>');
+
+</script>

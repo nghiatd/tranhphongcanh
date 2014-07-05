@@ -1,0 +1,43 @@
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Thông tin cơ bản</a></li>
+	</ul>
+	<div class="portlet-content hastable" id="tabs-1">
+		<table cellspacing="0" cellpadding="0" width="100%" class="hastable" style="margin-bottom: 0;">
+			<tr>
+				<td>Tên đầy đủ:</td>
+				<td> <?php echo $this->Contact->name;?></td>
+				<td>Ip:</td>
+				<td><?php echo $this->Contact->ip;?></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td> <?php echo $this->Contact->email;?></td>
+				<td>Tel:</td>
+				<td> <?php echo $this->Contact->phone;?></td>
+			</tr>
+			<tr>
+				<td>Tiêu đề</td>
+				<td colspan="3"><?php echo $this->Contact->subject?></td>
+			</tr>
+			<tr>
+				<td>Chi tiết</td>
+				<td colspan="3"><?php echo nl2br($this->Contact->content)?></td>
+			</tr>
+		</table>
+		<a class="btn_no_text btn ui-state-default ui-corner-all tooltip" href="<?php echo $this->url(array('controller'=>'contact','action'=>'delete','id'=>$this->Contact->id))?>">Xóa</a>
+		<br/><br/><br/>
+	</div>
+	<div style="font-weight: bold; margin: 10px 5px 5px 15px; float: left;">Trả lời: 
+	<form action="" method="post" style="float: right">
+		<table cellspacing="0" cellpadding="0" width="100%" style="margin-left: 15px" >
+			<tr>
+				<td><?php echo $this->formTextarea('content',$_REQUEST['content'],array('rows'=>7,'class'=>'mceEditor'))?></td>
+			</tr>
+		</table>
+		<br>
+		<input style="margin-left: 15px" type="submit" value="Gửi" />
+		<input style="margin-left: 15px" type="button" value="Quay lại" onclick="javascript:history.back();" />
+	</form>
+	</div>
+</div>

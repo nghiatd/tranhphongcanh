@@ -1,0 +1,77 @@
+<div class="hastable filter">
+	<form action="" method="get">
+		<table border="0">
+			<thead>
+				<tr>
+					<th>Từ khóa</th>
+					<th>Tiêu chí</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tr>
+				<td><?php echo $this->formText('keyword',($_GET['keyword'])?$_GET['keyword']:'')?></td>
+
+				<td><?php echo $this->formSelect('condition',$_GET['condition'],array('id'=>'s1'),array('name'=>'Tên thành viên','address'=>'Địa chỉ','email'=>'Email'))?></td>
+
+				<td><input type="submit" value="Tìm" src="/images/btn_submit.png" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div class="hastable">
+	<a
+		href="<?php echo $this->url(array('controller'=>'member','action'=>'create'))?>"><input
+		type="button" value="Thêm thành viên"></input> </a>
+	<table cellpadding="0" cellspacing="0" width="100%" class="tbl_list">
+		<thead>
+
+			<tr>
+				<th>Username</th>
+				<th>Tên thành viên</th>
+
+				<th>Email</th>
+				<th>Ngày tạo</th>
+				<!--th>Phân loại</th-->
+				<th>Kích hoạt</th>
+				<th>Ngày tạo</th>
+				<th>Đăng nhập cuối</th>
+				<th>Tùy chọn</th>
+
+			</tr>
+		</thead>
+    <?php foreach($this->Members as $Member):?>
+    <tr>
+			<td><?php echo $Member->username?></td>
+			<td><?php echo $Member->name?></td>
+
+			<td><?php echo $Member->email?></td>
+			<td><?php echo $Member->created_date?></td>
+			<!--td><?php // echo $Member->getMemberType()?></td-->
+			<td><?php echo ($Member->status)?'Yes':'No'?></td>
+			<td><?php echo $Member->getCreatedDate()?></td>
+			<td><?php echo $Member->getLastLogin()?></td>
+			<td width="70px"><a
+				class="btn_no_text btn ui-state-default ui-corner-all tooltip"
+				href="<?php echo $this->url(array('controller'=>'member','action'=>'edit','id'=>$Member->id))?>"><span
+					class="ui-icon ui-icon-wrench"></span></a><a
+				class="btn_no_text btn ui-state-default ui-corner-all tooltip"
+				href="<?php echo $this->url(array('controller'=>'member','action'=>'delete','id'=>$Member->id))?>"><span
+					class="ui-icon ui-icon-circle-close"></span></a></td>
+
+		</tr>
+    <?php endforeach;?>
+</table>
+	<div class="paging"><?php echo $this->Pagination($this->Pager,$this->url(array('controller'=>'member','action'=>'index')).'?page={%page}{%Condition}',$_GET)?></div>
+</div>
+<script type="text/javascript">
+$(function() {
+<?php if($_GET['countries_id']):?>
+ajaxLoadForOption('<?php echo $this->url(array('controller'=>'ajax','action'=>'getCitiesByCountry'))?>?country=<?php echo $_GET['countries_id']?>',$("#mathanhpho"));
+	//$("#mathanhpho").val(<?php echo $_GET['city_id']?>);
+	setTimeout('$("#mathanhpho").val(3);',300);
+	<?php endif;?>
+	$("#maquocgia").change(function() {
+		ajaxLoadForOption('<?php echo $this->url(array('controller'=>'ajax','action'=>'getCitiesByCountry'))?>?country='+$("#maquocgia").val(),$("#mathanhpho"));
+	})
+});
+</script>

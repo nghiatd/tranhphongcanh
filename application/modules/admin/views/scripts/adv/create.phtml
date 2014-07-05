@@ -1,0 +1,69 @@
+
+	
+		<table style="border-top:0" >
+			<tr>
+				<td valign="top">
+				<form action="" method="post">
+				<div class="hastable">
+				<table style="border-top:0">
+						<tr>
+							<td>Tiêu đề</td>
+							<td colspan="3"><?php echo $this->formText('title',$_REQUEST['title'], array('style'=>'width:300px'))?></td>
+						</tr>
+						<tr>
+							<td>Mô tả</td>
+							<td colspan="3"><?php echo $this->formText('description',$_REQUEST['description'], array('style'=>'width:300px'))?></td>
+						</tr>
+						<tr>
+							<!--td>Domain</td>
+							<td><?php //echo $this->formSelect('domains_id',$_REQUEST['domains_id'],'',Domains::getOption(array('--Select--')))?></td-->
+							<td>Link chuyển đi</td>							
+							<td colspan="3"><?php echo $this->formText('link',$_REQUEST['link'])?></td>
+						</tr>
+						<tr>
+							<td>Width</td>							
+							<td><?php echo $this->formText('width',$_REQUEST['width'])?></td>
+							<td>height</td>							
+							<td><?php echo $this->formText('height',$_REQUEST['height'])?></td>							
+						</tr>
+						<tr>
+							<td>File</td>							
+							<td><?php echo $this->formText('file',$_REQUEST['file'])?></td>
+							<td>Trạng thái </td>
+							<td><?php echo $this->formSelect('status',$_REQUEST['status'],'',array('Disable','Enable'))?></td>
+						</tr>
+						<tr>
+							<td>Vị trí</td>
+							<td colspan="3"><?php echo $this->formSelect('location',$_REQUEST['location'],'',Ads::$Location)?></td>
+						</tr>
+						
+					</table>
+					<?php echo $this->formSubmit('submit','Lưu lại')?><a href="javascript:history.back();"><input type="button" value="Quay lại"></input> </a>
+					</div>	
+					</form>
+					</td>
+					<td width="50%">
+					<div class="hastable">
+						<table style="border-top:0">
+							<thead>
+								<tr>
+									<td>Danh sách thư viện</td>					
+								</tr>
+							</thead>
+						<tbody style="overflow-y: auto; overflow-x: auto; height: 100%;">
+						<?php foreach($this->Adv as $file):?>
+							<tr>
+								<td>
+								<script>document.write(ParsedAdvHtml('/uploads/adv/<?php echo $file['name']?>','<?php echo $file['type']?>','','100%'));</script>
+								File: <?php echo $this->formText ( '','adv/'.$file['name'],array('size'=>'52'))?>
+								</td>					
+							</tr>
+						<?php endforeach;?>
+						</tbody>
+						</table>
+						</div>
+					</td>
+	
+				</tr>			
+			</table>
+

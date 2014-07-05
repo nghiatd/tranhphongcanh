@@ -1,0 +1,30 @@
+<form method="post">
+Chọn thành viên: <?php echo $this->formSelect('id',$_POST['id'],array(),Members::getOption(array(),array('--Select--')))?>
+<?php echo $this->formSubmit('Export','Export dữ liệu')?>
+</form>
+<div class="hastable">
+<center><?php echo $this->error?></center>
+<?php if($this->Log):?>
+<table>
+	<thead>
+		<tr>
+			<td>Thời điểm</td>
+			<td>Phân mục</td>
+			<td>Hành động</td>
+			<td>IP</td>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($this->Log as $log):?>
+		<tr>
+			<td><?php echo $log['time']?></td>
+			<td><?php echo $log['section']?></td>
+			<td><?php echo $log['action']?></td>
+			<td><?php echo $log['ip']?></td>
+		</tr>
+	<?php endforeach;?>
+	</tbody>
+</table>
+<?php endif;?>
+</div>
+

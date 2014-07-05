@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence" adminlang="en_US" srclang="de-at" o-tmf="abc" creationtool="XYZTool" ></header>
+	<body>
+		<tu tuid="Login_head">
+			<tuv xml:lang="en"><seg>Q-Web Control Panel</seg></tuv>
+			<tuv xml:lang="vi"><seg>Hệ thống quản trị Q-Web</seg></tuv>
+		</tu>
+		<tu tuid="Login_title">
+			<tuv xml:lang="en"><seg>Login</seg></tuv>
+			<tuv xml:lang="vi"><seg>Đăng nhập</seg></tuv>
+		</tu>
+		<tu tuid="Input your username and password for Login">
+			<tuv xml:lang="en"><seg>Input your username and password for Login</seg></tuv>
+			<tuv xml:lang="vi"><seg>Nhập tên tài khoản và mật khẩu của bạn để đăng nhập vào hệ thống</seg></tuv>
+		</tu>
+		<tu tuid="Username">
+			<tuv xml:lang="en"><seg>Username:</seg></tuv>
+			<tuv xml:lang="vi"><seg>Tên đăng nhập:</seg></tuv>
+		</tu>
+		<tu tuid="Password">
+			<tuv xml:lang="en"><seg>Password:</seg></tuv>
+			<tuv xml:lang="vi"><seg>Mật khẩu:</seg></tuv>
+		</tu>
+		<tu tuid="Login_button">
+			<tuv xml:lang="en"><seg>Login</seg></tuv>
+			<tuv xml:lang="vi"><seg>Đăng nhập</seg></tuv>
+		</tu>
+		<tu tuid="Lost password">
+			<tuv xml:lang="en"><seg>Lost password</seg></tuv>
+			<tuv xml:lang="vi"><seg>Quên mật khẩu?</seg></tuv>
+		</tu>
+		<tu tuid="Login incorrect">
+			<tuv xml:lang="en"><seg>Login incorrect! Please try again!</seg></tuv>
+			<tuv xml:lang="vi"><seg>Đăng nhập không thành công. Xin hãy thử lại</seg></tuv>
+		</tu>
+		<tu tuid="Login_forgot">
+			<tuv xml:lang="en"><seg>Forgot your password</seg></tuv>
+			<tuv xml:lang="vi"><seg>Lấy lại mật khẩu</seg></tuv>
+		</tu>
+		<tu tuid="Input your email to renew password">
+			<tuv xml:lang="en"><seg>Input your email to renew password</seg></tuv>
+			<tuv xml:lang="vi"><seg>Nhập Email của bạn để tạo mật khẩu mới</seg></tuv>
+		</tu>
+	</body>
+</tmx>

@@ -1,0 +1,441 @@
+---
+detect_relations: true
+options:
+  charset: utf8
+  type: MyISAM
+
+Contact:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    name_title:
+      type: string(45)
+      default: null
+    name:
+      type: string(45)
+      default: null
+    email:
+      type: string(45)
+      default: null
+    phone:
+      type: string(45)
+      default: null
+    booking_id:
+      type: string(45)
+      default: null
+    subject:
+      type: string(125)
+      default: null
+    content:
+      type: clob(16777215)
+      default: null
+    created_date:
+      type: timestamp
+      default: null
+    viewed:
+      type: integer(1)
+      default: null
+    ip:
+      type: string(15)
+      default: null
+    address:
+      type: string(125)
+      default: null
+  options:
+    charset: utf8
+
+Contents:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    title:
+      type: string(256)
+      default: null
+    title_plain:
+      type: string(256)
+      default: null
+    description:
+      type: clob(65535)
+      default: null
+    detail:
+      type: clob(65535)
+      default: null
+    status:
+      type: integer(1)
+      default: null
+    created_date:
+      type: timestamp
+      default: null
+    view:
+      type: integer(4)
+      default: null
+    categories_id:
+      type: integer(4)
+      notnull: true
+    members_id:
+      type: integer(4)
+      notnull: true
+    author:
+      type: string(125)
+      default: null
+  indexes:
+    fk_contents_categories:
+      fields: [categories_id]
+    fk_contents_members1:
+      fields: [members_id]
+  options:
+    charset: utf8
+
+Images:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    file:
+      type: string(125)
+      default: null
+    created_date:
+      type: timestamp
+      default: null
+    location:
+      type: integer(4)
+      default: null
+  options:
+    charset: utf8
+
+Members:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    username:
+      type: string(45)
+      default: null
+    password:
+      type: string(125)
+      default: null
+    name:
+      type: string(45)
+      default: null
+    email:
+      type: string(125)
+      default: null
+    created_date:
+      type: timestamp
+      default: null
+    last_login:
+      type: timestamp
+      default: null
+    status:
+      type: integer(1)
+      default: null
+    tel:
+      type: string(45)
+      default: null
+    address:
+      type: string(125)
+      default: null
+    mobile:
+      type: string(45)
+      default: null
+  options:
+    charset: utf8
+
+ProductCategories:
+  tableName: product_categories
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    title:
+      type: string(125)
+      default: null
+    title_plain:
+      type: string(125)
+      default: null
+    orders:
+      type: integer(4)
+      default: null
+    status:
+      type: integer(1)
+      default: null
+    children_id:
+      type: string(125)
+      notnull: true
+    root_id:
+      type: integer(4)
+      notnull: true
+    product_categories_id:
+      type: integer(4)
+      notnull: true
+    product_type_id:
+      type: integer(4)
+      notnull: true
+    gender_id:
+      type: integer(4)
+      notnull: true
+    detail:
+      type: clob(65535)
+      default: null
+  indexes:
+    fk_product_categories_product_categories:
+      fields: [product_categories_id]
+    fk_product_categories_product_type1:
+      fields: [product_type_id]
+    fk_product_categories_gender1:
+      fields: [gender_id]
+    fk_product_categories_product_categories1:
+      fields: [product_categories_id, id]
+  options:
+    charset: utf8
+
+Products:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    title:
+      type: string(125)
+      default: null
+    title_plain:
+      type: string(125)
+      default: null
+    price:
+      type: float
+      notnull: true
+    brand_price:
+      type: float
+      notnull: true
+    detail:
+      type: clob(65535)
+    status:
+      type: integer(1)
+      default: null
+    view:
+      type: integer(4)
+      default: null
+    created_date:
+      type: timestamp
+      default: null
+    warranty:
+      type: string(125)
+      default: null
+    maker:
+      type: string(45)
+      default: null
+    description:
+      type: clob(65535)
+      default: null
+    origin:
+      type: string(45)
+      default: null
+    power:
+      type: string(125)
+    product_brands_id:
+      type: integer(4)
+      notnull: true
+    product_categories_id:
+      type: integer(4)
+      notnull: true
+    product_type_id:
+      type: integer(4)
+      notnull: true
+    is_sale_off:
+      type: integer(1)
+      notnull: true
+    is_new:
+      type: integer(1)
+      notnull: true
+    images:
+      type: string(256)
+    author:
+      type: string(45)
+  relations:
+    ProductCategories:
+      class: ProductCategories
+      local: product_categories_id
+      foreign: id
+      foreignType: many
+      owningSide: true
+    ProductType:
+      class: ProductType
+      local: product_type_id
+      foreign: id
+      foreignType: many
+      owningSide: true
+  indexes:
+    fk_products_product_brands1:
+      fields: [product_brands_id]
+    fk_products_product_categories1:
+      fields: [product_categories_id]
+    fk_products_product_type1:
+      fields: [warranty]
+    fk_products_gender1:
+      fields: [maker]
+    fk_products_product_type1_idx:
+      fields: [product_type_id]
+  options:
+    charset: utf8
+
+Settings:
+  columns:
+    id:
+      type: string(256)
+      primary: true
+      notnull: true
+    name:
+      type: string(45)
+      default: null
+    value:
+      type: string(256)
+      default: null
+    desc:
+      type: string(255)
+      default: null
+    section:
+      type: integer(1)
+      notnull: true
+  options:
+    charset: utf8
+
+Users:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    username:
+      type: string(45)
+      default: null
+    password:
+      type: string(45)
+      default: null
+    email:
+      type: string(45)
+      default: null
+    address:
+      type: string(125)
+      default: null
+    fullname:
+      type: string(45)
+      default: null
+    link_account:
+      type: string(125)
+      default: null
+    link_id:
+      type: string(45)
+      default: null
+    created_date:
+      type: timestamp
+      default: null
+    last_login:
+      type: timestamp
+      default: null
+    active_status:
+      type: integer(1)
+      default: null
+    status:
+      type: integer(1)
+      default: null
+    gender:
+      type: integer(1)
+      default: null
+    country:
+      type: string(45)
+      default: null
+    city:
+      type: string(45)
+      default: null
+    birthday:
+      type: date
+      default: null
+    total_reviews:
+      type: integer(4)
+      default: null
+    total_helpfull:
+      type: integer(4)
+      default: null
+    tel:
+      type: string(45)
+      default: null
+    phone:
+      type: string(45)
+      default: null
+    su_kien_id:
+      type: string(255)
+      default: null
+  options:
+    charset: utf8
+
+ProductType:
+  tableName: product_type
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    name:
+      type: string(45)
+    name_plain:
+      type: integer(1)
+    orders:
+      type: integer(1)
+    alt_text:
+      type: string(255)
+
+Ads:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    title:
+      type: string(45)
+      default: null
+    description:
+      type: string(125)
+      default: null
+    link:
+      type: string(255)
+      default: null
+    file:
+      type: string(255)
+      default: null
+    width:
+      type: string(45)
+      default: null
+    height:
+      type: string(45)
+      default: null
+    status:
+      type: integer(1)
+      notnull: true
+    location:
+      type: string(45)
+      default: null
+    domains_id:
+      type: integer(4)
+      notnull: true
+  indexes:
+    fk_ads_domains1:
+      fields: [domains_id]
+  options:
+    charset: utf8
+

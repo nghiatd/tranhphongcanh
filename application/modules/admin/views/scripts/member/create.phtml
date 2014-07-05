@@ -1,0 +1,56 @@
+<?php if($this->error):?>
+    <div class="response-msg error ui-corner-all">
+          <span>Có lỗi:</span> <?php foreach($this->error as $error){echo '- '.$error.'<br/>';}?>
+    </div>
+<?php endif;?>
+<h3 align="center" style="color:#00CCFF; font-size: 14px; font-weight: bold;"></h3>
+<form method="post" name="member"><input type="hidden" name="id"
+	value="<?php echo $this->Customer->id?>" />
+	
+<div class="hastable">
+<table align="center" border="1" style="" width="450px">
+<tr>
+		<td style="padding-top: 10px">Tên đăng nhập</td>
+		<td style="padding-top: 10px"><?php echo $this->formText('email',$this->Member->username,array('size'=>'30'))?></td>
+	</tr>
+	<tr>
+		<td style="padding-top: 10px">Email</td>
+		<td style="padding-top: 10px"><?php echo $this->formText('email',$this->Member->email,array('size'=>'30'))?></td>
+	</tr>
+	<tr>
+		<td style="padding-top: 10px">Password</td>
+		<td style="padding-top: 10px"><?php echo $this->formPassword('password',$this->Member->password,array('size'=>'30'))?></td>
+	</tr>
+	<tr>
+		<td style="padding-top: 10px">Confirm Password</td>
+		<td style="padding-top: 10px"><?php echo $this->formPassword('confirmpassword','',array('size'=>'30'))?></td>
+	</tr>
+	<tr>
+		<td style="padding-top: 10px">Tên thành viên</td>
+		<td style="padding-top: 10px"><?php echo $this->formText('name',$this->Member->name,array('size'=>'30'))?></td>
+	</tr>
+	<tr>
+		<td style="padding-top: 10px">Điện thoại</td>
+		<td style="padding-top: 10px"><?php echo $this->formText('tel',$this->Member->tel,array('size'=>'30'))?></td>
+	</tr>
+	
+	<tr>
+		<td style="padding-top: 10px">Phone</td>
+		<td style="padding-top: 10px"><?php echo $this->formText('mobile',$this->Member->mobile,array('size'=>'30'))?></td>
+	</tr>
+	<tr>
+		<td style="padding-top: 10px">Địa chỉ</td>
+		<td style="padding-top: 10px"><?php echo $this->formText('address',$this->Member->address,array('size'=>'30'))?></td>
+	</tr>
+	
+	<tr>
+		<td style="padding-top: 10px">Trạng thái</td>
+		<td style="padding-top: 10px"><?php echo $this->formSelect('status',$this->Member->status,'',array('Disable','Enable'))?></td>
+	</tr>
+	<tr> 
+		<td colspan="2" align="center"><?php echo $this->formSubmit('submit','Cập nhật') ?></td>
+	</tr>
+</table>
+</div>
+
+</form>

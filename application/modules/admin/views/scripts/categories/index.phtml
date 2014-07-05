@@ -1,0 +1,58 @@
+<button class="dialog-form-create">Thêm mục</button>
+
+<div class="hastable">
+<table cellspacing="0" cellpadding="3" id="detailsView" width="100%">
+	<thead>
+		<tr>
+			<td>Số TT</td>
+			<td>Tên danh mục</td>
+			<td>Sắp xếp</td>
+			<td>Trạng thái</td>
+			<td>Tùy chọn</td>
+		</tr>
+	</thead>
+	<tbody><?php foreach ( $this->Categories as $category ) :?>
+		<tr>
+			<td><?php echo ++ $i?></td>
+			<td><?php /*<a class="category_<?php echo $category->id?>" href="admin/categories/?id=<?php echo $category->id?>">
+			*/?>
+			<?php echo $category->title?></td>
+		
+			<td><?php echo $category->orders?></td>
+			<td><?php echo ($category->status)?'<font color=red>Yes</font>':'No'?></td>
+			<td><a class="edit btn_no_text btn ui-state-default ui-corner-all tooltip"
+				href="admin/categories/edit?id=<?php echo $category->id?>"><span
+				class="ui-icon ui-icon-wrench"></span></a> 
+				<a class="delete btn_no_text btn ui-state-default ui-corner-all tooltip"
+				rel="<?php echo $category->id?>" href="admin/categories/delete?id=<?php echo $category->id?>"><span
+				class="ui-icon ui-icon-circle-close"></span></a></td>
+		</tr>
+<?php endforeach;?>	</tbody>
+</table>
+</div>
+<div id="dialog-form-create" title="Tạo danh mục">
+<?php echo $this->partial('categories/form.phtml',array('id'=>'dialog-form-create','tabs'=>'create','action'=>'admin/categories/create'))?>
+</div>
+<div id="dialog-form-edit" title="Sửa danh mục">
+<?php echo $this->partial('categories/form.phtml',array('id'=>'dialog-form-edit','tabs'=>'edit','action'=>'admin/categories/edit'))?>
+</div>
+
+<div id="dialog-form-delete" title="Xóa danh mục">
+<form id="dialog-form-delete-form" method="post" action="">
+<div class="alert_delete"><b></b></div>
+<br />
+Bạn có chắc chắn muốn xóa Danh mục trên không?</form>
+</div>
+<script type="text/javascript">
+	$(function() {
+		$('a.edit').click(function(){
+			dialogEditCategories($(this),'dialog-form-edit');
+			return false;
+		});
+		initDeleteMemberDialog();
+		$('a.delete').click(function(){
+			dialogDeleteCategories($(this));
+			return false;
+		});
+	});
+</script>

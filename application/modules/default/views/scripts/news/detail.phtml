@@ -1,0 +1,75 @@
+<script>
+$(document).ready(function(){
+	$('navtop li a').removeClass('cur');
+	$(".navtop li a[href='/tin-tuc.html']").addClass('cur');
+});
+	
+</script>	
+
+<div class="twocols clearfix">
+	<div class="maincol">
+		<div class="article">
+			<h1>
+				<?php echo $this->News->title; ?>
+			</h1>
+			<i class="datepost">( <?php echo $this->News->getDateAdd() ?> )
+			</i><br>
+			<div class="textintro">
+				<?php echo $this->News->description; ?>
+			</div>
+			<div class="desccontainer">
+				<?php echo $this->News->detail; ?>
+			</div>
+			<p align="right">
+				<b><?php echo $this->News->author ?> </b>
+			</p>
+		</div>
+		<!--[article]-->
+		<div class="gotop">
+			<a href="" id="gotop">Lên đầu trang</a>
+		</div>
+	</div>
+	<!--e: div.mailcol-->
+	<div class="rightcol">
+		<div class="folder">
+			<div class="head">
+				<h3>Tin khác</h3>
+			</div>
+			<div class="content">
+				<ul class="folder-list">
+					<?php foreach ($this->NewsList as $NewsList){ ?>
+					<li><div class="ui-inner">
+							<div class="photo">
+								<a href="<?php echo $NewsList->getLink() ?>"><img
+									src=<?php echo $NewsList->getThumbImage() ?> height="26"
+									width="36"> </a>
+							</div>
+							<a href="<?php echo $NewsList->getLink() ?>" class="a-link"><?php echo $NewsList->title?>
+							</a><br> <i class="datepost">( <?php echo $NewsList->getDateAdd()?>
+								)
+							</i>
+						</div></li>
+					<?php } ?>
+				</ul>
+				<p class="more" align="right">
+					<a href="<?php echo $this->url(array(),'news');?>">Xem thêm...</a>
+				</p>
+			</div>
+		</div>
+		<!--[folder]-->
+		<div class="advright">
+			<a href="#" style="display: block"><img src="images/img-04.jpg"
+				height="261" width="211"> </a>
+		</div>
+		<!--[advright]-->
+	</div>
+	<!--e: div.rightcol-->
+</div>
+<!--[twocols]-->
+<script type='text/javascript'>
+$(function(){$.fn.scrollToTop=function(){$(this).hide().removeAttr("href");if($(window).scrollTop()!="0"){$(this).fadeIn("slow")}var scrollDiv=$(this);$(window).scroll(function(){if($(window).scrollTop()=="0"){$(scrollDiv).fadeOut("slow")}else{$(scrollDiv).fadeIn("slow")}});$(this).click(function(){$("html, body").animate({scrollTop:0},"slow")})}});
+$(function() {
+$("#gotop").scrollToTop();
+});
+//]]>
+</script>

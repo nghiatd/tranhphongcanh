@@ -1,0 +1,329 @@
+@import url('admin/reset.css');
+
+@import url('admin/general.css');
+
+@import url('admin/styles/default/ui.css');
+
+@import url('admin/forms.css');
+
+@import url('admin/tables.css');
+
+@import url('admin/messages.css');
+
+@import url('admin/newstyle.css');
+
+.tool_panel {
+	height: 45px;
+}
+
+tfoot tr td {
+	font-weight: bold;
+}
+
+.InfoFacSer {
+	margin-bottom: 25px;
+}
+
+div.InfoFacSer h3 {
+	background: none !important;
+	border-bottom: 1px solid #a6a6a6;
+	font-size: 16px;
+	font-weight: bold !important;
+	color: #3c3c3c;
+	padding-left: 0px !important;
+	margin-bottom: 20px;
+}
+
+.LeftBoxHotelInfor {
+	width: 31%;
+	float: left;
+	display: block;
+	margin-left: 10px;
+}
+
+p.TitleHotelInfo {
+	font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+span.TitlePicture {
+	font-size: 14px;
+	font-weight: bold;
+	width: 11%;
+	text-transform: uppercase;
+	float: left;
+	display: block;
+}
+
+span.UpLoadImage {
+	width: 89%;
+	float: left;
+	display: block;
+}
+
+.BoxPicture {
+	margin: 10px 0 25px 0;
+}
+
+.BoxRoomType {
+	
+}
+
+.BoxRoomType ul li {
+	padding: 10px 0 0 0;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+div.BoxRoomType h3 {
+	background: none !important;
+	border-bottom: 1px solid #a6a6a6;
+	font-size: 16px;
+	font-weight: bold !important;
+	color: #3c3c3c;
+	padding-left: 0px !important;
+	margin-bottom: 5px;
+}
+
+.BoxDropDown {
+	border: 1px solid #f9a088;
+	padding: 5px;
+}
+
+.ButtonOk {
+	background: url(../images/button-ok.jpg) top left no-repeat;
+	width: 60px;
+	height: 20px;
+	border: none !important;
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+span.LeftDropDown {
+	width: 70%;
+	float: left;
+	display: block;
+}
+
+span.RightDropDown {
+	width: 30%;
+	float: left;
+	text-align: right;
+	display: block;
+}
+
+.InputSpecialServices {
+	border: 1px solid #f9a088;
+}
+
+.BoxSpecialService {
+	margin-top: 15px;
+}
+
+div.BoxSpecialService h3 {
+	background: none !important;
+	border-bottom: 1px solid #a6a6a6;
+	font-size: 16px;
+	font-weight: bold !important;
+	color: #3c3c3c;
+	padding-left: 0px !important;
+	margin-bottom: 12px;
+}
+
+td.UpDate a:link,td.UpDate a:visited {
+	text-decoration: none;
+	color: #dd1e25;
+	padding: 0 8px;
+}
+
+td.UpDate a:hover {
+	text-decoration: none;
+	color: #444444;
+}
+
+input.InputNumberRoom {
+	width: 60px;
+	padding: 2px 0;
+}
+
+.BottomSellRoom {
+	margin: 15px 0 0 0;
+	border-bottom: 1px dotted #ababab;
+	padding-bottom: 10px;
+}
+
+.TableCalendar {
+	border: 1px solid #bfbfbf;
+	margin-top: 10px;
+	border-left: none;
+	border-bottom: none;
+	clear: both;
+}
+
+.BgDate {
+	background: #eeeeee !important;
+}
+
+.CheckBoxDate {
+	border: none !important;
+	height: 14px;
+}
+
+td.Date {
+	color: #de1f24;
+	font-size: 17px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.InputRoom {
+	width: 45px;
+	text-align: center;
+	font-size: 11px;
+	color: #114599;
+	padding: 2px 0;
+}
+
+.InputPriceRoom {
+	width: 45px;
+	text-align: center;
+	font-size: 11px;
+	color: #3b3d3c;
+	padding: 2px 0;
+}
+
+.BorderBottomLeftSell {
+	border-bottom: 1px solid #bfbfbf;
+	border-left: 1px solid #bfbfbf;
+}
+
+.BorderLeftSell {
+	border-left: 1px solid #bfbfbf;
+}
+
+.BorderLeftBottomDot {
+	border-bottom: 1px dotted #b4b4b4;
+	border-left: 1px solid #bfbfbf;
+}
+
+.NoParSell {
+	padding: 0 !important;
+}
+
+span.LeftDate {
+	float: left;
+	display: block;
+	width: 26px;
+	padding-left: 27px;
+	font-weight: bold;
+	height: 20px;
+}
+
+.TableCalendar td {
+	padding: 5px;
+}
+
+* html span.LeftDate {
+	float: left;
+	display: block;
+	width: 26px;
+	padding-left: 24px;
+	font-weight: bold;
+	height: 20px;
+}
+
+span.RightDate {
+	margin-top: 8px;
+	height: 8px;
+	width: 15px;
+	float: left;
+	display: block;
+}
+
+span.RightDateNoMar {
+	margin-top: 3px;
+	height: 8px;
+	width: 15px;
+	float: left;
+	display: block;
+}
+
+span.LeftDateDetail {
+	display: block;
+	font-weight: bold;
+	height: 20px;
+}
+
+* html span.LeftDateDetail {
+	float: left;
+	display: block;
+	width: 26px;
+	padding-left: 24px;
+	font-weight: bold;
+	height: 20px;
+}
+
+.TableYear {
+	border: 1px solid #929292;
+	background: #ffe89a;
+	float: right;
+	margin-top: 10px;
+}
+
+.TableYear td {
+	padding: 5px;
+}
+
+td.Year {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	color: #db1e22;
+}
+
+td.MoreSell a:link,td.MoreSell a:visited {
+	color: #3c3c3c;
+	font-weight: bold;
+}
+
+td.MoreSell a:hover {
+	color: #3c3c3c;
+	font-weight: bold;
+}
+
+td.MoreSell img {
+	vertical-align: middle;
+}
+
+td.Instruction a:link,td.Instruction a:visited {
+	text-decoration: underline;
+	color: #3c3c3c;
+	font-weight: bold;
+}
+
+td.Instruction a:hover {
+	text-decoration: underline;
+	color: #3c3c3c;
+	font-weight: bold;
+}
+
+tr.hightlight {
+	background-color: #FFCFCF;
+}
+
+tr.bold td {
+	font-weight: bold;
+}
+
+#navigation sup {
+	color: red;
+}
+
+#loading {
+	margin: 0;
+	line-height: 20px;
+	display: none;
+	color: #ffffff;
+}

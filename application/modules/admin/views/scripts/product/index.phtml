@@ -1,0 +1,71 @@
+<br/><br/>
+<div class="hastable">
+<form action="" method="get">
+<table>
+	<thead>
+		<tr>
+			<th>Danh mục</th>
+			<th>Tên sản phẩm</th>
+			<th>Trạng thái</th>		
+		
+		</tr>
+	</thead>
+	<tr>
+		<td>
+			<?php echo $this->formSelect ( 'product_categories_id', $this->filter['product_categories_id'], '', ProductCategories::getOption ( array ('0' => '- Select All -' ) ) )?>
+		</td>
+		<td><input type="text" name="keyword" value="<?php echo $_GET['keyword']?>"></td>
+		<td><?php echo $this->formSelect('status',$this->filter['status'],'',array(''=>'--Select--',0 =>'Disable',1 =>'Enable'))?></td>	
+	
+		<td rowspan="2"><input type="submit" value="Tìm" /></td>
+	</tr>
+</table>
+</form>
+<a href="<?php echo $this->url(array('controller'=>'product','action'=>'create','module'=>'admin'),'',true)?>"><input type="button" value="Tạo mới sản phẩm" ></input></a>	
+<br/>
+
+
+<div class="hastable">
+<table cellspacing="0" cellpadding="0" width="100%" class="tbl_list">
+	<thead>
+		<tr>
+		
+			<th>Danh mục</th>
+			<th>Tên sản phẩm</th>
+			<th>Chất liệu</th>
+			<th>Kích Thước</th>
+			<th>Ngày tạo</th>
+			<th>Trạng thái</th>					
+			<th>Tùy chọn</th>
+		</tr>
+	</thead>
+	
+	<tbody>		
+		<?php foreach($this->Products as $Pro):?>
+		<tr>
+			
+			<td><?php echo $Pro->ProductCategories->title?></td>
+			<td><?php echo $Pro->title?></td>
+			<td><?php echo $Pro->maker?></td>
+			<td><?php echo $Pro->power?>cm</td>
+			<td><?php echo date('d/m/Y H:i:s',strtotime($Pro->created_date))?></td>
+			<td><?php echo $Pro->status()?></td>		
+			<td width="75"><a class="btn_no_text btn ui-state-default ui-corner-all tooltip"
+				href="<?php echo $this->url(array('controller'=>'product','action'=>'edit','id'=>$Pro->id,'module'=>'admin'))?>"><span
+				class="ui-icon ui-icon-wrench"></span></a> <a
+				href="<?php echo $this->url(array('controller'=>'product','action'=>'delete','id'=>$Pro->id,'module'=>'admin'))?>"
+				class="btn_no_text btn ui-state-default ui-corner-all tooltip"><span
+				class="ui-icon ui-icon-circle-close"></span></a>
+			</td>
+		</tr>
+		<?php endforeach;?>
+	</tbody>
+
+</table>
+<div class="paging">
+	<?php echo $this->Pagination($this->Pager,$this->url(array('controller'=>'product','action'=>'index')).'?page={%page}{%Condition}',$_GET)?>
+</div>
+</div>
+
+</div>
+

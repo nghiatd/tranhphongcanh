@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<admin>
+		<group name="nhóm thành viên">
+			<role code="index" name="xem danh sách" />
+			<role code="create" name="tạo mới" />
+			<role code="edit" name="chỉnh sửa" />
+			<role code="delete" name="xóa đi" />
+		</group>
+		<member name="thành viên">
+			<role code="index" name="xem danh sách" />
+			<role code="create" name="tạo mới" />
+			<role code="edit" name="chỉnh sửa" />
+			<role code="login" name="login function" />
+			<role code="logout" name="logout function" />
+		</member>
+		<location name="quản lý Khu vực">
+			<role code="index" name="danh sách quốc gia" />
+			<role code="createcountry" name="tạo mới quốc gia" />
+			<role code="editcountry" name="sửa quốc gia" />
+			<role code="delete" name="xóa quốc gia" />
+
+			<role code="city" name="quản lý thành phố" />
+			<role code="createcity" inherit="city" />
+			<role code="editcity" inherit="city" />
+			<role code="deletecity" inherit="city" />
+
+		</location>
+		<categories name="quản lý danh mục">
+			<role code="index" name="xem danh sách" />
+			<role code="create" name="tạo mới" />
+			<role code="edit" name="chỉnh sửa" />
+			<role code="delete" name="xóa đi" />
+		</categories>
+		<conditionsgroup name="nhóm danh mục">
+			<role code="index" name="xem danh sách" />
+			<role code="create" name="tạo mới" />
+			<role code="edit" name="chỉnh sửa" />
+			<role code="delete" name="xóa đi" />
+		</conditionsgroup>
+		<conditionsname name="tên chi tiết của nhóm">
+			<role code="index" name="xem danh sách" />
+			<role code="create" name="tạo mới" />
+			<role code="edit" name="chỉnh sửa" />
+			<role code="delete" name="xóa đi" />
+		</conditionsname>
+		<contact name="liên hệ khách hàng">
+			<role code="index" name="Danh sách khách hàng" />
+			<role code="create" name="Trả lời" />
+			<role code="view" name="Xem" />
+			<role code="delete" name="Xóa" />
+		</contact>
+		<adv name="Quản lý quảng cáo">
+			<role code="index" name="Danh sách quảng cáo" />
+			<role code="create" name="Thêm mới quảng cáo" />
+			<role code="edit" name="Sửa quảng cáo" />
+			<role code="delete" name="Xóa quảng cáo" />
+		</adv>
+		<settings name="Cài đặt cấu hình">
+			<role code="index" name="Cài đặt Cấu hình hệ thống" />
+			<role code="home" name="Cài đặt nội dung trang chủ" />
+			<role code="footer" name="Cài đặt footer" />
+			<role code="footertour" name="Cài đặt liên kết Tour Footer" />
+			<role code="advfile" name="Quản lý thư viện file quảng cáo" />
+		</settings>
+		<content name="Quản lý nội dung text">
+			<role code="index" name="Danh sách bài viết" />
+			<role code="create" name="Thêm bài viết mới" />
+			<role code="edit" name="Sửa bài viết" />
+			<role code="delete" name="Xóa bài viết" />
+		</content>
+		<faq name="Quản lý FAQ">
+			<role code="index" name="Danh sách FAQ" />
+			<role code="create" name="Thêm mới FAQ" />
+			<role code="edit" name="Sửa FAQ" />
+			<role code="delete" name="Xóa FAQ" />
+		</faq>
+		<faqcategories name="Quản lý nhóm FAQ">
+			<role code="index" name="Danh sách nhóm FAQ" />
+			<role code="create" name="Thêm mới nhóm FAQ" />
+			<role code="edit" name="Sửa nhóm FAQ" />
+			<role code="delete" name="Xóa nhom FAQ" />
+		</faqcategories>
+		<items name="Quản lý rao vặt">
+			<role code="index" name="Danh sách rao vặt" />
+			<role code="nobody" name="Tin  ẩn danh" />
+			<role code="warring" name="Tin vi phạm" />
+			<role code="warninglogs" name="Chi tiết warning" />
+			<role code="view" name="Xem tin rao vặt" />
+			<role code="delete" name="Xóa tin rao vặt" />
+		</items>
+		<comments name="Quản lý bình luận">
+			<role code="index" name="Danh sách bình luận" />
+			<role code="view" name="Xem bình luận" />
+			<role code="save" name="Sửa bình luận" />
+			<role code="delete" name="Xóa bình luận" />
+		</comments>
+		<keywords name="Quản lý Keywords">
+			<role code="index" name="Danh sách Keywords" />
+			<role code="create" name="Sửa Keywords" />
+			<role code="edit" name="Sửa Keywords" />
+			<role code="delete" name="Xóa Keywords" />
+		</keywords>
+		<customer name="Danh sách khách hàng">
+			<role code="index" name="Danh sách khách hàng" />
+			<role code="inactive" name="khách hàng chưa kích hoạt" />
+			<role code="view" name="Xem " />
+			<role code="edit" name="Sửa " />
+			<role code="delete" name="Xóa " />
+		</customer>
+		<advertising name="Danh sách quảng cáo">
+			<role code="index" name="Danh sách quảng cáo" />
+			<role code="edit" name="Sửa " />
+			<role code="delete" name="Xóa " />
+		</advertising>
+		<video name="Danh sách video">
+			<role code="index" name="Danh sách video" />
+			<role code="create" name="Thêm video" />
+			<role code="edit" name="Sửa " />
+			<role code="delete" name="Xóa " />
+		</video>
+	</admin>
+</resources>

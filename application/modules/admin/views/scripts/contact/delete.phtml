@@ -1,0 +1,27 @@
+<?php if($this->Contact):?>
+<form method="post">
+	<div class="ui-widget">
+		<div style="margin: 10px 0; padding: 0.7em;"
+			class="ui-state-highlight ui-corner-all">
+			<p>
+				<span style="float: left; margin-right: 0.3em;"
+					class="ui-icon ui-icon-info"></span> <strong>Chú ý!</strong> Bạn có
+chắc chắn muốn xóa liên hệ "<?php echo $this->Contact->subject?>" của <b><?php echo $this->Contact->name?></b>
+				không?.
+			</p>
+		</div>
+	</div>
+<?php echo $this->formSubmit('submit','Tôi chắc chắn')?>
+	<?php echo $this->formButton('cancel','Quay lại',array('onclick'=>'history.back()'))?>
+</form>
+<?php else:?>
+<div class="ui-widget">
+	<div class="ui-state-error ui-corner-all" style="padding: .7em;">
+		<p>
+			<span class="ui-icon ui-icon-alert"
+				style="float: left; margin-right: .3em;"></span> <strong>Có lỗi:</strong>
+			Khu vực bạn cần xóa không tồn tại. Hãy kiểm tra lại
+		</p>
+	</div>
+</div>
+<?php endif;?>

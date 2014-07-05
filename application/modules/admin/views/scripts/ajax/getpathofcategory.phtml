@@ -1,0 +1,6 @@
+<div id="category-<?php echo $this->Category?>">
+	<input type="button"
+		onclick="$('#category-<?php echo $this->Category?>').remove()"
+		value="X">&nbsp;<?php echo implode(' >> ',$this->Categories)?>
+<?php echo $this->formHidden('news_categories['.$this->index.']',$this->Category) ?>
+</div>

@@ -1,0 +1,36 @@
+
+<div id="container">
+	<div id="banner-slide">
+<?php $Ads = Ads::getWithOutPage(array('status=?'=>1,'location=?'=>0),5);?>
+        <!-- start Basic Jquery Slider -->
+        <ul class="bjqs">
+        <?php// print_r($Ads);die();?>
+        <?php foreach($Ads as $ad){?>
+        
+        	<?php if($ad->file){ ?>
+        	
+          <li><a href=""><img  src="uploads/<?php echo $ad->file?>"></a></li>
+          	<?php }?>
+         <?php }?> 
+        </ul>
+        <!-- end Basic jQuery Slider -->
+
+      </div>
+      <!-- End outer wrapper -->
+      
+      <!-- attach the plug-in to the slider parent element and adjust the settings as required -->
+      <script class="secret-source">
+        jQuery(document).ready(function($) {
+          
+          $('#banner-slide').bjqs({
+            animtype      : 'slide',
+            height        : 320,
+            width         : 620,
+            responsive    : true,
+            randomstart   : true
+          });
+          
+        });
+      </script>
+
+    </div>
